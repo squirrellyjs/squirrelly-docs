@@ -1,0 +1,143 @@
+<!--Based on @olado's excellent tester from doT.js-->
+<!--Modified by Ben Gubler-->
+<!--NOTE: You have to serve this file if you want to see the sourcemaps. NPM Package 'serve' works-->
+
+<h2>
+  Playground
+  <span
+    >Based on the excellent
+    <a href="http://olado.github.io/doT/index.html">DoT.js</a> website</span
+  >
+</h2>
+<div id="samples">
+  <ul id="sampletabs"></ul>
+  <!--Keeping this just in case I implement a similar tabs feature-->
+  <!-- <div class="stripgroup">
+            <input id="strip" type="checkbox" checked="checked" />
+            <label for="strip">Strip whitespaces</label>
+        </div> -->
+  <div style="clear:both;height:10px"></div>
+  <div class="templategroup">
+    <h4>Template</h4>
+    <textarea autocomplete="off" id="template">
+Hi
+{{log("Hope you like Squirrelly!")/}}
+{{ htmlstuff }}
+{{ foreach(options.obj) }}
+
+Reversed value: {{@this|reverse}}, Key: {{@key}}
+{{if(@key==="thirdchild")}}
+{{each(options.obj[@key])}}
+
+Salutations! Index: {{@index}}, old key: {{@../key}}
+{{/each}}
+{{/if}}
+{{/foreach}}
+
+{{ customhelper() }}
+{{#cabbage}}
+Cabbages taste good
+{{#pineapple}}
+As do pineapples
+{{/customhelper}}
+
+This is a partial: {{include("mypartial")/}}
+{{tags(--,--)/}}
+
+Custom delimeters!
+--arr--
+        </textarea
+    >
+  </div>
+  <div class="functiongroup">
+    <h4>Sqrl.Compile()</h4>
+    <div id="function"></div>
+  </div>
+  <div style="clear:both"></div>
+  <div class="datagroup">
+    <h4>Data</h4>
+    <textarea autocomplete="off" id="data">
+"htmlstuff": "<script>alert('hey')</script><p>alert('hey')</p><p>alert('hey')</p><p>alert('hey')</p>",
+"arr": ["Hey", "<p>Malicious XSS</p>", "Hey", 3, 12],
+"obj": {
+    "firstchild": "HI",
+    "secondchild": "HEY",
+    "thirdchild": [3, 6, 3, 2, 5, 4]
+}
+        </textarea
+    >
+  </div>
+  <div class="resultgroup">
+    <h4>Result</h4>
+    <div id="result"></div>
+  </div>
+</div>
+<script>
+  /* global Sqrl */
+  window.onload = function() {
+    Sqrl.defineFilter('reverse', function(str) {
+      var out = ''
+      for (var i = str.length - 1; i >= 0; i--) {
+        out += String(str).charAt(i)
+      }
+      return out || str
+    })
+
+    Sqrl.defineHelper('customhelper', function(args, content, blocks, options) {
+      var returnStr = 'Custom Helper speaking! \n'
+      for (var key in blocks) {
+        if (typeof blocks[key] === 'function') {
+          returnStr +=
+            'Block found named ' + key + ', with value: ' + blocks[key]()
+        }
+      }
+      return returnStr
+    })
+
+    Sqrl.definePartial(
+      'mypartial',
+      'Partial content: the value of arr is {{arr}}'
+    )
+
+    function escape(str) {
+      // To handle escaping for the function result
+      var escMap = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;',
+        '/': '&#x2F;'
+      }
+
+      function replaceChar(s) {
+        return escMap[s]
+      }
+      var newStr = String(str)
+      if (/[&<>"'/]/.test(newStr)) {
+        return newStr.replace(/[&<>"'/]/g, replaceChar)
+      } else {
+        return newStr
+      }
+    }
+
+    function render() {
+      console.clear()
+      var options = JSON.parse(
+        '{' + document.getElementById('data').value + '}'
+      )
+      console.log(JSON.stringify(options))
+      var template = document.getElementById('template').value
+      var functionResult = Sqrl.Compile(template).toString()
+      document.getElementById('function').innerHTML = escape(functionResult)
+      document.getElementById('result').innerHTML = Sqrl.Render(
+        template,
+        options
+      )
+      console.log(Sqrl.Render(template, options))
+    }
+    render()
+    document.getElementById('template').addEventListener('input', render)
+    document.getElementById('data').addEventListener('input', render)
+  }
+</script>
