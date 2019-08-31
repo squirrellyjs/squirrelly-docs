@@ -8,11 +8,11 @@
 module.exports = {
   title: 'SquirrellyJS',
   tagline: 'Lightweight, Blazing-Fast, and Powerful Template Engine',
-  url: 'https://your-docusaurus-test-site.com',
+  url: 'https://squirrellyjs.netlify.com',
   baseUrl: '/',
   favicon: 'img/favicon.ico',
   organizationName: 'squirrellyjs', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  projectName: 'squirrelly-docs', // Usually your repo name.
   themeConfig: {
     navbar: {
       title: 'Squirrelly',
@@ -69,7 +69,7 @@ module.exports = {
         }
       ],
       logo: {
-        alt: 'Facebook Open Source Logo',
+        alt: 'Squirrelly Logo',
         src: 'img/logo/fit.svg'
       },
       copyright: `Copyright © ${new Date().getFullYear()} SquirrellyJS. Built with Docusaurus.`

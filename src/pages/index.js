@@ -52,8 +52,8 @@ function Home() {
   return (
     <Layout
       permalink={'/'}
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />"
+      title="SquirrellyJS"
+      description="Blazing-fast, lightweight, powerful and modern JS template engine"
     >
       <div className={styles['index-hero']}>
         <div className={styles['index-hero-inner']}>
@@ -83,7 +83,7 @@ function Home() {
           <div className={styles['index-ctas']}>
             <Link
               className={styles['index-ctas-get-started-button']}
-              to={withBaseUrl('docs/install')}
+              to={withBaseUrl('docs/v7/install')}
             >
               Get Started
             </Link>
@@ -105,9 +105,12 @@ function Home() {
           We're working on{' '}
           <a href="https://github.com/facebook/Docusaurus/issues/789">
             Squirrelly v8
-          </a>
-          {' '}- contribute by suggesting features or giving{' '}
-          <Link to={withBaseUrl('/feedback')}>feedback here</Link>!
+          </a>{' '}
+          - contribute by suggesting features or giving{' '}
+          <Link to={'https://github.com/squirrellyjs/squirrelly/issues/106'}>
+            feedback here
+          </Link>
+          !
         </div>
       </div>
 

@@ -139,7 +139,7 @@ class Playground extends React.Component {
 
   render() {
     return (
-      <Layout title="SquirrellyJS Playground">
+      <Layout title="SquirrellyJS Playground" description="Test out the Squirrelly template engine in your browser">
         <div className={styles['playground']}>
           <span>
             {'  '}Based on the excellent
