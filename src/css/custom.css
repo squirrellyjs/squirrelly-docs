@@ -11,13 +11,17 @@
  * work well for content-centric websites.
  */
 
-/* You can override the default Infima variables here. */
+/* You can override the default Infima variables here. 
+
+NOTE: the color of the Squirrelly logo is a4683b
+TODO: update colors
+*/
 :root {
   --ifm-color-primary: #3ba486;
-  --ifm-color-primary-dark: rgb(33, 175, 144);
-  --ifm-color-primary-darker: rgb(31, 165, 136);
-  --ifm-color-primary-darkest: rgb(26, 136, 112);
-  --ifm-color-primary-light: rgb(70, 203, 174);
-  --ifm-color-primary-lighter: rgb(102, 212, 189);
-  --ifm-color-primary-lightest: rgb(146, 224, 208);
+  --ifm-color-primary-dark: #3ba486;
+  --ifm-color-primary-darker: #3ba486;
+  --ifm-color-primary-darkest: #3ba486;
+  --ifm-color-primary-light: #3ba486;
+  --ifm-color-primary-lighter: #3ba486;
+  --ifm-color-primary-lightest: #3ba486;
 }

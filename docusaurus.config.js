@@ -25,6 +25,7 @@ module.exports = {
         { to: 'docs/v7/introduction', label: 'About', position: 'left' },
         { to: 'docs/v7/first-template', label: 'Learn', position: 'left' },
         { to: 'blog', label: 'Blog', position: 'left' },
+        { to: 'playground', label: 'Playground', position: 'left' },
         {
           href: 'https://gitter.im/squirrellyjs/Lobby',
           label: 'Community',

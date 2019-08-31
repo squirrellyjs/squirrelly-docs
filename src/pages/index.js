@@ -15,32 +15,30 @@ import styles from './styles.module.css'
 
 const features = [
   {
+    title: <>Unbeatable Performance</>,
+    imageUrl: 'img/undraw/outer_space.svg',
+    description: (
+      <>
+        <a href={withBaseUrl('docs/v7/performance')}>Benchmarks</a> demonstrate
+        just how fast Squirrelly is. Think fast, then multiply by crazy speedy, and you have an idea of Squirrelly's performance.
+      </>
+    )
+  },
+  {
     title: <>Easy to Use</>,
-    imageUrl: 'img/mountain.svg',
+    imageUrl: 'img/undraw/coding.svg',
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Squirrelly's template syntax (inspired by Handlebars and Nunjucks) is easy to read and write, and incredibly powerful.
       </>
     )
   },
   {
-    title: <>Focus on What Matters</>,
-    imageUrl: 'img/tree.svg',
+    title: <>Powerful and Lightweight</>,
+    imageUrl: 'img/undraw/collecting.svg',
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
-      </>
-    )
-  },
-  {
-    title: <>Powered by React</>,
-    imageUrl: 'img/react.svg',
-    description: (
-      <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Squirrelly comes with the necessary features to create incredibly powerful templates. Helpers, filters, native code, partials... with a minzipped bundle cost of only ~2.2KB! The runtime library is even smaller: only 600 bytes minzipped!
       </>
     )
   }
