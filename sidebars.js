@@ -29,7 +29,7 @@ module.exports = {
     // Resources: ['v8/how-squirrelly-works']
   },
   docs: {
-    'Get Started': ['v7/overview', 'v7/install'],
+    'Get Started': ['v7/overview', 'v7/install', 'v7/security'],
     'Template Syntax': [
       'v7/syntax-overview',
       'v7/cheatsheet',
