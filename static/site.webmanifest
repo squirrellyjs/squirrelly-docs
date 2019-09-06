@@ -3,12 +3,12 @@
     "short_name": "Squirrelly",
     "icons": [
         {
-            "src": "/android-chrome-192x192.png?v=gAeEk9MGmd",
+            "src": "/icons/android-chrome-192x192.png?v=gAeEk9MGmd",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "/android-chrome-512x512.png?v=gAeEk9MGmd",
+            "src": "/icons/android-chrome-512x512.png?v=gAeEk9MGmd",
             "sizes": "512x512",
             "type": "image/png"
         }
