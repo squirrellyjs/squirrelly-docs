@@ -59,21 +59,21 @@ function Home() {
             alt="Squirrel"
             className={styles['index-hero-logo']}
             src={withBaseUrl('img/logo/fit.svg')}
-            style={{ width: '40%' }}
+            style={{ width: '35%' }}
           />
           <h1 className={styles['index-hero-project-tagline']}>
             Squirrelly is a
             <br />{' '}
             <span className={styles['index-hero-project-keywords']}>
-              Powerful
+              - Powerful
             </span>{' '}
             <br />
             <span className={styles['index-hero-project-keywords']}>
-              Lightweight
+              - Lightweight
             </span>{' '}
             <br />
             <span className={styles['index-hero-project-keywords']}>
-              Blazing-Fast
+              - Blazing-Fast
             </span>{' '}
             <br />
             JS template engine

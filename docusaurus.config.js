@@ -8,12 +8,15 @@
 module.exports = {
   title: 'SquirrellyJS',
   tagline: 'Lightweight, Blazing-Fast, and Powerful Template Engine',
-  url: 'https://squirrellyjs.netlify.com',
+  url: 'https://squirrelly.js.org',
   baseUrl: '/',
   favicon: '/favicon.ico',
   organizationName: 'squirrellyjs', // Usually your GitHub org/user name.
   projectName: 'squirrelly-docs', // Usually your repo name.
   themeConfig: {
+    googleAnalytics: {
+      trackingID: 'UA-122013092-2'
+    },
     navbar: {
       title: 'Squirrelly',
       logo: {
