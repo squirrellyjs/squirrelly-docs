@@ -5,45 +5,45 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React, {useState} from 'react';
-import classnames from 'classnames';
+import React, { useState } from 'react'
+import classnames from 'classnames'
+import Ad from '../codefund/index.js'
+import Link from '@docusaurus/Link'
 
-import Link from '@docusaurus/Link';
+import styles from './styles.module.css'
 
-import styles from './styles.module.css';
-
-const MOBILE_TOGGLE_SIZE = 24;
+const MOBILE_TOGGLE_SIZE = 24
 
 function DocLegacySidebar(props) {
-  const [showResponsiveSidebar, setShowResponsiveSidebar] = useState(false);
-  const {docsMetadata, sidebar} = props;
+  const [showResponsiveSidebar, setShowResponsiveSidebar] = useState(false)
+  const { docsMetadata, sidebar } = props
 
   if (!sidebar) {
-    return null;
+    return null
   }
 
-  const thisSidebar = docsMetadata.docsSidebars[sidebar];
+  const thisSidebar = docsMetadata.docsSidebars[sidebar]
 
   if (!thisSidebar) {
-    throw new Error(`Can not find ${sidebar} config`);
+    throw new Error(`Can not find ${sidebar} config`)
   }
 
   const convertDocLink = item => {
-    const linkID = item.id;
-    const linkMetadata = docsMetadata.docs[linkID];
+    const linkID = item.id
+    const linkMetadata = docsMetadata.docs[linkID]
 
     if (!linkMetadata) {
       throw new Error(
-        `Improper sidebars file, document with id '${linkID}' not found.`,
-      );
+        `Improper sidebars file, document with id '${linkID}' not found.`
+      )
     }
 
     return {
       type: 'link',
       label: linkMetadata.sidebar_label || linkMetadata.title,
-      href: linkMetadata.permalink,
-    };
-  };
+      href: linkMetadata.permalink
+    }
+  }
 
   const renderItem = item => {
     switch (item.type) {
@@ -55,7 +55,7 @@ function DocLegacySidebar(props) {
             </a>
             <ul className="menu__list">{item.items.map(renderItem)}</ul>
           </li>
-        );
+        )
 
       case 'link':
         return (
@@ -65,38 +65,42 @@ function DocLegacySidebar(props) {
               className="menu__link"
               to={item.href}
               onClick={() => {
-                setShowResponsiveSidebar(false);
-              }}>
+                setShowResponsiveSidebar(false)
+              }}
+            >
               {item.label}
             </Link>
           </li>
-        );
+        )
 
       case 'ref':
       default:
-        return renderItem(convertDocLink(item));
+        return renderItem(convertDocLink(item))
     }
-  };
+  }
 
   return (
     <div className={styles.sidebar}>
       <div
         className={classnames('menu', 'menu--responsive', {
-          'menu--show': showResponsiveSidebar,
-        })}>
+          'menu--show': showResponsiveSidebar
+        })}
+      >
         <button
           aria-label={showResponsiveSidebar ? 'Close Menu' : 'Open Menu'}
           className="button button--secondary button--sm menu__button"
           type="button"
           onClick={() => {
-            setShowResponsiveSidebar(!showResponsiveSidebar);
-          }}>
+            setShowResponsiveSidebar(!showResponsiveSidebar)
+          }}
+        >
           {showResponsiveSidebar ? (
             <span
               className={classnames(
                 styles.sidebarMenuIcon,
-                styles.sidebarMenuCloseIcon,
-              )}>
+                styles.sidebarMenuCloseIcon
+              )}
+            >
               &times;
             </span>
           ) : (
@@ -107,7 +111,8 @@ function DocLegacySidebar(props) {
               width={MOBILE_TOGGLE_SIZE}
               viewBox="0 0 32 32"
               role="img"
-              focusable="false">
+              focusable="false"
+            >
               <title>Menu</title>
               <path
                 stroke="currentColor"
@@ -119,12 +124,13 @@ function DocLegacySidebar(props) {
             </svg>
           )}
         </button>
+        <Ad />
         <ul className="menu__list">
-          {thisSidebar.map(item => renderItem(item, {root: true}))}
+          {thisSidebar.map(item => renderItem(item, { root: true }))}
         </ul>
       </div>
     </div>
-  );
+  )
 }
 
-export default DocLegacySidebar;
+export default DocLegacySidebar

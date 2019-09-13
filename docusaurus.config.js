@@ -68,6 +68,10 @@ module.exports = {
             {
               label: 'Blog',
               to: 'blog'
+            },
+            {
+              label: 'Facebook',
+              to: 'https://www.facebook.com/squirrellyjs/'
             }
           ]
         }

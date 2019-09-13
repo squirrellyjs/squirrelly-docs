@@ -15,7 +15,7 @@ export default class Comments extends Component {
   }
 
   render() {
-    console.log('comments rendering...')
+    // console.log('comments rendering...')
     return <div id="inject-comments-for-uterances"></div>
   }
 }
