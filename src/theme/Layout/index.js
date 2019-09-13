@@ -40,6 +40,12 @@ function Layout(props) {
         <meta charSet="utf-8" />
         <meta httpEquiv="x-ua-compatible" content="ie=edge" />
         <meta name="viewport" content="width=device-width" />
+        {permalink === '/' && (
+          <meta
+            name="google-site-verification"
+            content="OpVsG-FgMcjd1s4b7eo1r5os_cVgR1HT65uSZFnYP0o"
+          />
+        )}
         {metaTitle && <title>{metaTitle}</title>}
         {metaTitle && <meta property="og:title" content={metaTitle} />}
         {favicon && <link rel="shortcut icon" href={withBaseUrl(favicon)} />}
