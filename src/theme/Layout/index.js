@@ -11,6 +11,8 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 import withBaseUrl from '@docusaurus/withBaseUrl'
 import Navbar from '@theme/Navbar'
 import Footer from '@theme/Footer'
+import 'react-web-tabs/dist/react-web-tabs.css';
+
 
 import './styles.css'
 

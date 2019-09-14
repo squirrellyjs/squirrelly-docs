@@ -1,0 +1,65 @@
+---
+id: install
+title: Installation
+sidebar_label: Installation
+description: How to install Squirrelly for use in Node.js or the browser
+---
+
+import { Tabs, Tab, TabPanel, TabList } from 'react-web-tabs'
+
+Squirrelly tries to follow best practices, and provides a UMD build to support most JS loading options, like ES modules, CommonJS, and AMD.
+
+## Install Squirrelly
+
+<Tabs defaultTab="Node.js">
+  <TabList>
+    <Tab tabFor="Node.js">Node.js</Tab>
+    <Tab tabFor="Browser">Browser</Tab>
+  </TabList>
+  <TabPanel tabId="Node.js">
+    <br/>
+
+```sh
+npm install squirrelly --save
+```
+
+Or if you prefer Yarn:
+
+```sh
+yarn add squirrelly
+```
+
+<br />
+
+### Importing / Requiring
+
+Sqrl is packaged as a UMD module, so you can require with CommonJS, import using ES Modules, or use AMD.
+
+```js
+import * as Sqrl from 'squirrelly'
+// or
+var Sqrl = require('squirrelly')
+```
+
+  </TabPanel>
+  <TabPanel tabId="Browser">
+    <br/>
+
+
+### Unpkg
+
+```html
+<script src="https://unpkg.com/squirrelly@latest/dist/squirrelly.min.js"></script>
+```
+
+### JSDelivr
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/squirrelly@7.5.0/dist/squirrelly.min.js"></script>
+```
+
+This makes Squirrelly available through the global `Sqrl` variable.
+
+  </TabPanel>
+
+</Tabs>
