@@ -7949,10 +7949,10 @@ sprintf-js@~1.0.2:
   resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
   integrity sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw=
 
-squirrelly@^7.4.0:
-  version "7.4.0"
-  resolved "https://registry.yarnpkg.com/squirrelly/-/squirrelly-7.4.0.tgz#d1a5a434d0de19f06b9298d0cbc8f766a4775d62"
-  integrity sha512-3cJkUYrlBOey5fG7FsWedto2FRmGMYe7eqdvACx70NrsgRexZu5Jk4eKWwLMiZ2Ap9A0X78Q9GJw0eQo/kBo2g==
+squirrelly@^7.6.0:
+  version "7.6.0"
+  resolved "https://registry.yarnpkg.com/squirrelly/-/squirrelly-7.6.0.tgz#f26795076574c43fa2fad7107979fe858aa798e1"
+  integrity sha512-G2Y9t1PJSZuYuiMH+cRniS6NLkSpmahJeFguChQ1FYIiRHKv9yjRAHu8s0fSvpDN9rOTs8bzvamfChSInv8fSQ==
 
 sshpk@^1.7.0:
   version "1.16.1"

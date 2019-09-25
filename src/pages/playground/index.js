@@ -76,7 +76,9 @@ function FunctionDisplay(props) {
   return (
     <div className={styles['functiongroup']}>
       <h4>Sqrl.Compile()</h4>
-      <div className={styles['function']}>{props.content}</div>
+      <div className={styles['function']}>
+        {Sqrl.Compile(props.template).toString() || 'Error'}
+      </div>
     </div>
   )
 }
@@ -98,12 +100,37 @@ function ResultDisplay(props) {
   return (
     <div className={styles['resultgroup']}>
       <h4>Result</h4>
-      <div
-        className={styles['result']}
-        dangerouslySetInnerHTML={{ __html: props.content }}
-      />
+      <div className={styles['result']}>
+        {Sqrl.Render(props.template, props.data)}
+      </div>
     </div>
   )
+}
+
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { hasError: false }
+  }
+
+  static getDerivedStateFromError(error) {
+    // Update state so the next render will show the fallback UI.
+    return { hasError: true }
+  }
+
+  componentDidCatch(error, errorInfo) {
+    // You can also log the error to an error reporting service
+    console.log('Squirrelly had an error: ', error, errorInfo)
+  }
+
+  render() {
+    if (this.state.hasError) {
+      // You can render any custom fallback UI
+      return <h1>Something went wrong.</h1>
+    }
+
+    return this.props.children
+  }
 }
 
 class Playground extends React.Component {
@@ -111,42 +138,39 @@ class Playground extends React.Component {
     super(props)
     this.state = {
       template: initialTemplate,
-      data: JSON.parse('{' + initialData + '}'),
-      function: Sqrl.Compile(initialTemplate).toString(),
-      result: Sqrl.Render(initialTemplate, JSON.parse('{' + initialData + '}'))
+      data: JSON.parse('{' + initialData + '}')
     }
     this.updateData = this.updateData.bind(this)
     this.updateTemplate = this.updateTemplate.bind(this)
-    this.reRender = this.reRender.bind(this)
   }
 
   updateData(event) {
-    this.setState({ data: JSON.parse('{' + event.target.value + '}') })
-    this.reRender()
+    if (
+      event.target.value &&
+      JSON.parse('{' + (event.target.value || '') + '}')
+    ) {
+      var data = JSON.parse('{' + (event.target.value || '') + '}')
+      this.setState({
+        data: JSON.parse('{' + (event.target.value || '') + '}') || {}
+      })
+    }
   }
 
-  updateTemplate(template) {
-    this.setState({ template: event.target.value })
-    this.reRender()
-  }
-
-  reRender() {
-    this.setState((state, props) => ({
-      function: Sqrl.Compile(state.template).toString(),
-      result: Sqrl.Render(state.template, state.data)
-    }))
+  updateTemplate(event) {
+    this.setState({
+      template: event.target.value || ''
+    })
   }
 
   render() {
     return (
-      <Layout title="SquirrellyJS Playground" description="Test out the Squirrelly template engine in your browser">
-        <div className={styles['playground']}>
-          <span>
-            {'  '}Based on the excellent
-            <a href="http://olado.github.io/doT/index.html"> DoT.js</a> website
-          </span>
-          <div className={styles['samples']}>
-            {/* <ul className={styles['sampletabs']}>
+      <div className={styles['playground']}>
+        <span>
+          {'  '}Based on the excellent
+          <a href="http://olado.github.io/doT/index.html"> DoT.js</a> website
+        </span>
+        <div className={styles['samples']}>
+          {/* <ul className={styles['sampletabs']}>
               <li id="xinterpolation" className="">
                 interpolation
               </li>
@@ -164,22 +188,39 @@ class Playground extends React.Component {
               </li>
               <li id="xencode">encode</li>
             </ul> */}
-            {/* <!--Keeping this just in case I implement a similar tabs feature--> */}
-            {/* <div class="stripgroup">
+          {/* <!--Keeping this just in case I implement a similar tabs feature--> */}
+          {/* <div class="stripgroup">
               <input id="strip" type="checkbox" checked="checked" />
               <label for="strip">Strip whitespaces</label>
             </div> */}
-            <div style={{ clear: 'both', height: '10px' }} />
-            <TemplateEditor onChange={this.updateTemplate} />
-            <FunctionDisplay content={this.state.function} />
-            <div style={{ clear: 'both' }} />
-            <DataEditor onChange={this.updateData} />
-            <ResultDisplay content={this.state.result} />
-          </div>
+          <div style={{ clear: 'both', height: '10px' }} />
+          <TemplateEditor onChange={this.updateTemplate} />
+          <FunctionDisplay template={this.state.template} />
+          <div style={{ clear: 'both' }} />
+          <DataEditor onChange={this.updateData} />
+          <ResultDisplay
+            template={this.state.template || ''}
+            data={this.state.data || {}}
+          />
         </div>
+      </div>
+    )
+  }
+}
+
+class ErrorHandlingPlayground extends React.Component {
+  render() {
+    return (
+      <Layout
+        title="SquirrellyJS Playground"
+        description="Test out the Squirrelly template engine in your browser"
+      >
+        <ErrorBoundary>
+          <Playground />
+        </ErrorBoundary>
       </Layout>
     )
   }
 }
 
-export default Playground
+export default ErrorHandlingPlayground

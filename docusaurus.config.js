@@ -35,6 +35,11 @@ module.exports = {
           position: 'right'
         },
         {
+          to: 'feedback',
+          label: 'Feedback',
+          position: 'right'
+        },
+        {
           href: 'https://github.com/squirrellyjs/squirrelly',
           label: 'GitHub',
           position: 'right'

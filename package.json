@@ -17,7 +17,7 @@
     "react-admonitions": "^2.0.0",
     "react-dom": "^16.8.4",
     "react-web-tabs": "^1.0.1",
-    "squirrelly": "^7.4.0"
+    "squirrelly": "^7.6.0"
   },
   "browserslist": {
     "production": [
