@@ -1,0 +1,54 @@
+---
+id: render
+title: Render
+---
+
+import Hint from 'react-admonitions'
+
+## Syntax
+
+```js
+Sqrl.Render(template, options)
+//If template is a function, returns the result of template(options, Sqrl)
+//If template is a string, it will Compile the string
+//and then return compiled(options, Sqrl)
+```
+
+<Hint type="note">
+
+Rendering a function (obtained from [Sqrl.Compile](compile) rather than a string is usually better for performance, since Squirrelly doesn't have to re-compile the template each time it Renders.
+
+</Hint>
+
+<Hint type="note">
+
+Caching is available. Set `options.$cache` to `true`, and set `options.$name` to some string value so Squirrelly can cache the resulting function.
+
+</Hint>
+
+## Examples
+
+### Rendering a string
+
+```text
+var myTemplate = `
+My favorite template engine is {{fav}}
+`
+Sqrl.Render(myTemplate, {
+    fav: "Squirrelly!"
+})
+//Returns "My favorite template engine is Squirrelly!"
+```
+
+### Rendering a function
+
+```text
+var myTemplate = `
+My favorite template engine is {{fav}}
+`
+var compiledTemplate = Sqrl.Compile(myTemplate)
+Sqrl.Render(compiledTemplate, {
+    fav: "Squirrelly!"
+})
+//Returns "My favorite template engine is Squirrelly!"
+```
