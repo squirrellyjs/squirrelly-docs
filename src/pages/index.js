@@ -105,7 +105,7 @@ function Home () {
       <div className={styles.announcement}>
         <div className={styles['announcement-inner']}>
           <a href='https://github.com/facebook/Docusaurus/issues/789'>
-            Squirrelly v8 has been released!
+            Squirrelly v8 Beta has been released!
           </a>
         </div>
       </div>

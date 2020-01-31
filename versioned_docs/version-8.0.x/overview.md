@@ -3,6 +3,8 @@ id: overview
 title: Overview
 ---
 
+**WARNING: THIS IS A BETA PRODUCT. There is a good chance these docs haven't been updated from v7 yet**
+
 Congratulations on deciding to use Squirrelly! These docs will be your guide as you learn how to use this tool.
 
 ## For people who learn by example
