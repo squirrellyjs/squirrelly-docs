@@ -12,6 +12,11 @@ module.exports = {
     googleAnalytics: {
       trackingID: 'UA-122013092-2'
     },
+    algolia: {
+      apiKey: '9f59e33223929116fc07fce007dd6d2f',
+      indexName: 'squirrelly',
+      algoliaOptions: {} // Optional, if provided by Algolia
+    },
     navbar: {
       title: 'Squirrelly',
       logo: {
