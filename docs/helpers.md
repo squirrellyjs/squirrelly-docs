@@ -6,14 +6,14 @@ title: Helpers
 ## Basic Syntax
 
 ```
-{{helpername(parameters) [optionalID]}}
+{{~helpername(parameters)}}
 
 {{#helperblock}}
 
 {{/helpername}}
 ```
 
-You can have as many unique blocks as you want within a helper. To learn about IDs and helper references, check [here](helper-refs).
+You can have as many blocks as you want within a helper.
 
 ## Example
 

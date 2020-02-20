@@ -1,0 +1,46 @@
+---
+id: filters
+title: Filters
+---
+
+import Hint from 'react-admonitions'
+
+Filters let you pipe content through some predefined functions.
+
+## Basic Syntax
+
+```sqrl
+{{somereference | somefilter |anotherfilter}}
+```
+
+Squirrelly has a filter syntax similar to Nunjucks or Swig. Just put a `|` and then the filter name. You can pipe to multiple filters if you want.
+
+Filters can also accept parameters.
+
+## Example
+
+```sqrl
+{{! /* Basic filters */}}
+
+{{mystring | reverse | capitalize}}
+
+{{! /* With Parameters */}}
+
+{{it.someArray | join(", ")}}
+```
+
+<Hint type="note" title="Defining Filters">
+
+Remember, you'll need to [define each filter](../api/filters) before you use it.
+
+</Hint>
+
+## The `safe` flag
+
+To disable autoescaping, you can write
+
+```sqrl
+{{myreference | safe}}
+```
+
+This isn't a true filter, it just acts as a flag to let Squirrelly know not to autoescape.

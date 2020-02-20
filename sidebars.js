@@ -11,8 +11,7 @@ module.exports = {
     'Template Syntax': [
       'syntax-overview',
       'cheatsheet',
-      'global-refs',
-      'helper-refs',
+      'references',
       'filters',
       'helpers',
       'partials',

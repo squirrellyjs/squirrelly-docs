@@ -10,6 +10,6 @@ Squirrelly uses Regular Expressions to turn a template into a function which can
 
 ## Long Version:
 
-1. Squirrelly uses a big RegExp to loop through each valid tag (ex. `{{...}}`) in the template. It adds each tag, processed, to `functionString` and also adds the plain text in-between each tag.
+1. Squirrelly uses a big RegExp with inline tokenization to loop through each valid tag (ex. `{{...}}`) in the template. It adds each tag, processed, to `functionString` and also adds the plain text in-between each tag.
 2. Squirrelly turns `functionString` into a valid JS function using `Function`, and returns the function. (The use of `Function` is why you should never compile user-defined templates).
 3. This explanation is really lacking. Just read the source code :)

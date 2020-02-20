@@ -26,7 +26,7 @@ var data = {
 ## Render!
 
 ```js
-var result = Sqrl.Render(myTemplate, data)
+var result = Sqrl.render(myTemplate, data)
 // My favorite template engine is Squirrelly.
 ```
 
