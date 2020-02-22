@@ -1,5 +1,5 @@
 ---
-id: syntax-overview
+id: overview
 title: Syntax Overview
 ---
 

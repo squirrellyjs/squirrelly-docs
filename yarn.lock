@@ -8061,10 +8061,15 @@ sprintf-js@~1.0.2:
   resolved "https://registry.yarnpkg.com/sprintf-js/-/sprintf-js-1.0.3.tgz#04e6926f662895354f3dd015203633b857297e2c"
   integrity sha1-BOaSb2YolTVPPdAVIDYzuFcpfiw=
 
-squirrelly@8.0.0-beta.0:
-  version "8.0.0-beta.0"
-  resolved "https://registry.yarnpkg.com/squirrelly/-/squirrelly-8.0.0-beta.0.tgz#8b107d931ddc116b4fe84ae8952bc1e2c8a62ee5"
-  integrity sha512-hGjMpaEHicner+lyt0PQF3wr/+7M4Pwbc6Vi7blJ/bbsFNMDOp6i81rR7lyh1agfNJpPu2+ZzZXonyMQ45rNkA==
+"squirrelly-7@npm:squirrelly@7.9.1":
+  version "7.9.1"
+  resolved "https://registry.yarnpkg.com/squirrelly/-/squirrelly-7.9.1.tgz#9e83f8d6297345914413455963bbfad98d16208c"
+  integrity sha512-n9uxl2Aa8KvslWExwggN4js064Egr6fzOI3G0KXRV6iQown9dC/5ug3mR3U0PJuWzabj4THUqn47GAWNLLMzcw==
+
+squirrelly@8.0.0-beta.4:
+  version "8.0.0-beta.4"
+  resolved "https://registry.yarnpkg.com/squirrelly/-/squirrelly-8.0.0-beta.4.tgz#c9637a1ac2f6d6cdd31a4952ecdfed11132ef3a3"
+  integrity sha512-NUlhzyggSv/oiAKNTwF0OVv4QkQ5pwPM6jXlbtkZxyTKDiLsQT1JBYKgDiMKsDkf/bI1JN7IsYAlU/QZmvIa7A==
 
 sshpk@^1.7.0:
   version "1.16.1"

@@ -10,6 +10,10 @@
   font-family: Helvetica Neue, arial, verdana;
 }
 
+ul.tabs {
+  text-align: center !important;
+}
+
 .playground h2 {
   text-shadow: 0 1px 2px #fff;
   margin: 0;
@@ -34,7 +38,8 @@
   font-size: 20px;
 }
 
-.templategroup textarea, .datagroup textarea {
+.templategroup textarea,
+.datagroup textarea {
   border: 1px solid lightgrey;
   outline: none;
   font-size: 14px;
@@ -80,7 +85,8 @@
   height: 90px;
 }
 
-.templategroup textarea.defines, .datagroup textarea.defines {
+.templategroup textarea.defines,
+.datagroup textarea.defines {
   height: 60px;
 }
 

@@ -1,9 +1,14 @@
 import React from 'react'
 import Layout from '@theme/Layout'
 import styles from './styles.module.css'
-import * as Sqrl from 'squirrelly'
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+import CodeBlock from '@theme/CodeBlock'
 
-Sqrl.defineFilter('reverse', function (str) {
+import * as Sqrl7 from 'squirrelly-7'
+import * as Sqrl8 from 'squirrelly'
+
+Sqrl7.defineFilter('reverse', function (str) {
   var out = ''
   for (var i = str.length - 1; i >= 0; i--) {
     out += String(str).charAt(i)
@@ -11,7 +16,15 @@ Sqrl.defineFilter('reverse', function (str) {
   return out || str
 })
 
-Sqrl.defineHelper('customhelper', function (args, content, blocks, options) {
+Sqrl8.filters.define('reverse', function (str) {
+  var out = ''
+  for (var i = str.length - 1; i >= 0; i--) {
+    out += String(str).charAt(i)
+  }
+  return out || str
+})
+
+Sqrl7.defineHelper('customhelper', function (args, content, blocks, options) {
   var returnStr = 'Custom Helper speaking! \n'
   for (var key in blocks) {
     if (typeof blocks[key] === 'function') {
@@ -21,7 +34,25 @@ Sqrl.defineHelper('customhelper', function (args, content, blocks, options) {
   return returnStr
 })
 
-Sqrl.definePartial('mypartial', 'Partial content: the value of arr is {{arr}}')
+Sqrl8.helpers.define('customhelper', function (content, blocks, options) {
+  var returnStr = 'Custom Helper speaking! \n'
+  for (var i = 0; i < blocks.length; i++) {
+    var currentBlock = blocks[i]
+    returnStr +=
+      'Block found named ' +
+      currentBlock.name +
+      ', with value: ' +
+      currentBlock.exec()
+  }
+  return returnStr
+})
+
+Sqrl7.definePartial('mypartial', 'Partial content: the value of arr is {{arr}}')
+
+Sqrl8.templates.define(
+  'mypartial',
+  Sqrl8.compile('Partial content: the value of `num` is {{it.num}}')
+)
 
 var initialTemplate = `Hi
 {{log("Hope you like Squirrelly!")/}}
@@ -51,6 +82,32 @@ Custom delimeters!
 --arr--
 `
 
+var initialTemplate8 = `Hi
+{{!console.log("Hope you like Squirrelly!")}}
+{{it.htmlstuff}}
+
+{{~foreach(it.obj) => key, val}}
+Reversed value: {{val|reverse}}, Key: {{key}}
+
+{{~if(key==="thirdchild")}}
+{{~each(it.obj[key]) => val, index}}
+    Salutations! Index: {{index}}, val: {{val}}
+
+{{/each}}
+{{/if}}
+{{/foreach}}
+
+{{~customhelper()}}
+{{#cabbage}}
+Cabbages taste good
+{{!console.log("Hi from inside a template")}}
+{{#pineapple}}
+As do pineapples
+{{/customhelper}}
+
+This is a partial: {{~include("mypartial", {num: 3})/}}
+`
+
 var initialData = `"htmlstuff": "<script>alert('hey')</script><p>alert('hey')</p><p>alert('hey')</p><p>alert('hey')</p>",
 "arr": ["Hey", "<p>Malicious XSS</p>", "Hey", 3, 12],
 "obj": {
@@ -66,7 +123,7 @@ function TemplateEditor (props) {
       <textarea
         autoComplete='off'
         onChange={props.onChange}
-        defaultValue={initialTemplate}
+        defaultValue={props.content}
       />
     </div>
   )
@@ -75,8 +132,9 @@ function TemplateEditor (props) {
 function FunctionDisplay (props) {
   return (
     <div className={styles.functiongroup}>
-      <h4>Sqrl.Compile()</h4>
-      <div className={styles.function}>{props.result}</div>
+      <h4>Compile</h4>
+      {/* <div className={styles.function}>{props.result}</div> */}
+      <CodeBlock className='javascript'>{props.result}</CodeBlock>
     </div>
   )
 }
@@ -133,13 +191,15 @@ class Playground extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      template: initialTemplate,
+      template: props.v8 ? initialTemplate8 : initialTemplate,
       data: JSON.parse('{' + initialData + '}'),
-      functionString: Sqrl.Compile(initialTemplate).toString(),
-      templateResult: Sqrl.Render(
-        initialTemplate,
-        JSON.parse('{' + initialData + '}')
-      )
+      functionString: (props.v8
+        ? Sqrl8.compile(initialTemplate8)
+        : Sqrl7.Compile(initialTemplate)
+      ).toString(),
+      templateResult: props.v8
+        ? Sqrl8.render(initialTemplate8, JSON.parse('{' + initialData + '}'))
+        : Sqrl7.Render(initialTemplate, JSON.parse('{' + initialData + '}'))
     }
     this.handleDataChange = this.handleDataChange.bind(this)
     this.handleTemplateChange = this.handleTemplateChange.bind(this)
@@ -151,18 +211,22 @@ class Playground extends React.Component {
       JSON.parse('{' + (event.target.value || '') + '}')
     ) {
       var data = JSON.parse('{' + (event.target.value || '') + '}')
-      this.setState({
-        data: data || {}
-      })
+      this.setState(
+        {
+          data: data || {}
+        },
+        this.updateSqrlResults
+      )
     }
-    this.updateSqrlResults()
   }
 
   handleTemplateChange (event) {
-    this.setState({
-      template: event.target.value || ''
-    })
-    this.updateSqrlResults()
+    this.setState(
+      {
+        template: event.target.value || ''
+      },
+      this.updateSqrlResults
+    )
   }
 
   updateSqrlResults () {
@@ -170,14 +234,20 @@ class Playground extends React.Component {
     var templateResult
 
     try {
-      functionString = Sqrl.Compile(this.state.template).toString()
+      functionString = (this.props.v8
+        ? Sqrl8.compile(this.state.template)
+        : Sqrl7.Compile(this.state.template)
+      ).toString()
       this.setState({
         functionString: functionString
       })
     } catch (ex) {}
 
     try {
-      templateResult = Sqrl.Render(this.state.template, this.state.data)
+      templateResult = (this.props.v8 ? Sqrl8.render : Sqrl7.Render)(
+        this.state.template,
+        this.state.data
+      )
       this.setState({
         templateResult: templateResult
       })
@@ -216,7 +286,10 @@ class Playground extends React.Component {
               <label for="strip">Strip whitespaces</label>
             </div> */}
           <div style={{ clear: 'both', height: '10px' }} />
-          <TemplateEditor onChange={this.handleTemplateChange} />
+          <TemplateEditor
+            onChange={this.handleTemplateChange}
+            content={this.state.template}
+          />
           <FunctionDisplay result={this.state.functionString} />
           <div style={{ clear: 'both' }} />
           <DataEditor onChange={this.handleDataChange} />
@@ -234,9 +307,25 @@ class ErrorHandlingPlayground extends React.Component {
         title='SquirrellyJS Playground'
         description='Test out the Squirrelly template engine in your browser'
       >
-        <ErrorBoundary>
-          <Playground />
-        </ErrorBoundary>
+        <Tabs
+          defaultValue='v7'
+          values={[
+            { label: 'Version 7', value: 'v7' },
+            { label: 'Version 8 (BETA)', value: 'v8' }
+          ]}
+          style={{ textAlign: 'center' }}
+        >
+          <TabItem value='v7'>
+            <ErrorBoundary>
+              <Playground />
+            </ErrorBoundary>
+          </TabItem>
+          <TabItem value='v8'>
+            <ErrorBoundary>
+              <Playground v8 />
+            </ErrorBoundary>
+          </TabItem>
+        </Tabs>
       </Layout>
     )
   }

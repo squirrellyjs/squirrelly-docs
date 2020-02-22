@@ -7,43 +7,48 @@
 
 module.exports = {
   docs: {
-    'Get Started': ['overview', 'install', 'security'],
+    'Get Started': [
+      'get-started/overview',
+      'get-started/install',
+      'get-started/security'
+    ],
     'Template Syntax': [
-      'syntax-overview',
-      'cheatsheet',
-      'references',
-      'filters',
-      'helpers',
-      'partials',
-      'custom-tags',
-      'builtin-helpers'
+      'syntax/overview',
+      'syntax/cheatsheet',
+      'syntax/references',
+      'syntax/filters',
+      'syntax/helpers',
+      'syntax/partials',
+      'syntax/builtin-helpers',
+      'syntax/whitespace-control'
     ],
     API: [
-      'auto-escaping',
-      'compile',
-      'default-tags',
-      'define-filter',
-      'define-helper',
-      'define-native-helper',
-      'define-partial',
-      'load',
-      'render',
-      'render-file',
-      'set-default-filters'
+      'api/rendering',
+      'api/compilation',
+      'api/async',
+      'api/caching',
+      'api/configuration',
+      'api/file-handling',
+      'api/filter-api',
+      'api/helper-api',
+      'api/native-helper-api',
+      'api/parsing',
+      'api/templates-partials-layouts'
     ]
   },
   about: {
     About: [
-      'introduction',
-      'why-squirrelly',
-      'performance',
-      'FAQ',
-      'contributors'
+      'about/introduction',
+      'about/why-squirrelly',
+      'about/performance',
+      'about/FAQ',
+      'about/contributors'
     ],
-    'Behind the Scenes': ['how-squirrelly-works']
+    'Behind the Scenes': ['learn/how-squirrelly-works']
   },
   learn: {
-    Guides: ['first-template', 'caching', 'runtime'],
-    Resources: ['how-squirrelly-works']
+    Guides: ['learn/first-template'],
+    Resources: ['learn/how-squirrelly-works']
+    // add custom tags, how-to caching, etc.
   }
 }

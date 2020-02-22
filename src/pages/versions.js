@@ -13,13 +13,13 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 import Link from '@docusaurus/Link'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 
-import versions from '../../versions.json'
+// import versions from '../../versions.json'
 
 function Version () {
   const context = useDocusaurusContext()
   const { siteConfig = {} } = context
-  const latestVersion = versions[0]
-  const pastVersions = versions.filter(version => version !== latestVersion)
+  // const latestVersion = versions[0]
+  // const pastVersions = versions.filter(version => version !== latestVersion)
   const repoUrl = `https://github.com/${siteConfig.organizationName}/${siteConfig.projectName}`
   return (
     <Layout
@@ -29,7 +29,7 @@ function Version () {
       <div className='container margin-vert--xl'>
         <h1>Squirrelly versions</h1>
         <div className='margin-bottom--lg'>
-          <h3 id='latest'>Squirrelly v8</h3>
+          <h3 id='latest'>Squirrelly v8 (BETA)</h3>
           <p>
             Here you can find the documentation for the latest release of
             Squirrelly v8.
@@ -37,17 +37,17 @@ function Version () {
           <table>
             <tbody>
               <tr>
-                <th>{latestVersion}</th>
+                <th>Squirrelly 8.x.x</th>
                 <td>
-                  <Link to={useBaseUrl('/docs/introduction')}>
+                  <Link to={useBaseUrl('/docs/next/get-started/overview')}>
                     Documentation
                   </Link>
                 </td>
-                <td>
+                {/* <td>
                   <a href={`${repoUrl}/releases/tag/v${latestVersion}`}>
                     Release Notes
                   </a>
-                </td>
+                </td> */}
               </tr>
             </tbody>
           </table>
@@ -60,7 +60,7 @@ function Version () {
               <tr>
                 <th>7.x.x</th>
                 <td>
-                  <Link to={useBaseUrl('/docs/7.x.x/introduction')}>
+                  <Link to={useBaseUrl('/docs/introduction')}>
                     Documentation
                   </Link>
                 </td>
@@ -71,25 +71,7 @@ function Version () {
             </tbody>
           </table>
         </div>
-        <div className='margin-bottom--lg'>
-          <h3 id='next'>In-progress documentation</h3>
-          <table>
-            <tbody>
-              <tr>
-                <th>master</th>
-                <td>
-                  <Link to={useBaseUrl('/docs/next/introduction')}>
-                    Documentation
-                  </Link>
-                </td>
-                <td>
-                  <a href={repoUrl}>Source Code</a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        {pastVersions.length > 0 && (
+        {/* pastVersions.length > 0 && (
           <div className='margin-bottom--lg'>
             <h3 id='archive'>Past Versions</h3>
             <p>
@@ -116,7 +98,7 @@ function Version () {
               </tbody>
             </table>
           </div>
-        )}
+                ) */}
       </div>
     </Layout>
   )
