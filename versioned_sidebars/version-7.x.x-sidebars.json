@@ -109,9 +109,7 @@
           "id": "version-7.x.x/set-default-filters"
         }
       ]
-    }
-  ],
-  "version-7.x.x/about": [
+    },
     {
       "type": "category",
       "label": "About",
@@ -147,9 +145,7 @@
           "id": "version-7.x.x/how-squirrelly-works"
         }
       ]
-    }
-  ],
-  "version-7.x.x/learn": [
+    },
     {
       "type": "category",
       "label": "Guides",

@@ -3,28 +3,44 @@ id: native-helper-api
 title: Native Helpers API
 ---
 
-import Hint from 'react-admonitions'
+import Hint from "react-admonitions";
 
-<Hint type="note">
-    
-Many template engines offer you the option to <b>Compile</b> (which just renders your template) or <b>Precompile</b> (which turns your template into a function ahead of time). Squirrelly precompiles automatically, but is still faster than other engines.
+Native helpers let you output code directly into your template function.
 
+<Hint type="warning">
+  Native helpers are complicated and kind of messy. If you can implement
+  something with a regular helper, do that instead
 </Hint>
 
 ## Syntax
 
-```js
-var myTemplate = 'Hi, my name is {{name}}'
-var compiled = Sqrl.Compile(myTemplate)
-//Returns an anonymous function:
-/*
-function anonymous(options, Sqrl) {
-var tmpltRes='Hi, my name is ';tmpltRes+=Sqrl.F.e(options.name);
-return tmpltRes
-}*/
-//This function can be called with options and Sqrl (Sqrl so that it can
-//access helpers and filters) and will return the rendered template.
+## Examples
 
-compiled({ name: 'Johnny Appleseed' }, Sqrl)
-//Returns "Hi, my name is Johnny Appleseed"
+_This is the `if` native helper, behind-the-scenes_
+
+```js
+Sqrl.nativeHelpers.define("if", function(buffer, env) {
+  // buffer.d is buffer content, in AST form
+
+  var returnStr =
+    "if(" + buffer.p + "){" + Sqrl.compileScope(buffer.d, env) + "}";
+  if (buffer.b) {
+    // b stands for blocks
+    // Loop through each helper block
+    for (var i = 0; i < buffer.b.length; i++) {
+      var currentBlock = buffer.b[i];
+      if (currentBlock.n === "else") {
+        returnStr += "else{" + Sqrl.compileScope(currentBlock.d, env) + "}";
+      } else if (currentBlock.n === "elif") {
+        returnStr +=
+          "else if(" +
+          currentBlock.p +
+          "){" +
+          Sqrl.compileScope(currentBlock.d, env) +
+          "}";
+      }
+    }
+  }
+  return returnStr;
+});
 ```

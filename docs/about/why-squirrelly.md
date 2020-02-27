@@ -12,7 +12,7 @@ Squirrelly has a number of features that set it apart from the competition. It i
 - Supports filters
 - Supports partials
 - Supports custom tags (delimeters)
-- Incredibly lightweight: in comparison: the full version only weighs about **2.6 KB gzipped**, compared to Pug's **237 KB** and Handlebars' **21.5 KB**
+- Incredibly lightweight: in comparison: the full version only weighs about **3.5 KB gzipped**, compared to Pug's **237 KB** and Handlebars' **21.5 KB**
 - Works with other languages than HTML
 - Not white-space sensitive, but white-space-trimming configurable
 - Syntax accessible to non-JavaScript programmers

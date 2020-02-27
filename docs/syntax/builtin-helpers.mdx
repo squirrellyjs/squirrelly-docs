@@ -3,7 +3,7 @@ id: builtin-helpers
 title: Built-in Helpers
 ---
 
-import Hint from 'react-admonitions'
+import Hint from "react-admonitions";
 
 Builtin helpers are helpers that come as part of the Squirrelly library. They can always be overwritten if desired, but they provide simple, no-setup logic within templates.
 
@@ -16,6 +16,8 @@ Display this
 Display this
 {{/if}}
 ```
+
+_This is a native helper_
 
 ## each
 
@@ -49,3 +51,18 @@ The current key is {{@key}}
 - `val`: the value of the current child
 
 **Note that `val, index` are both optional and can be renamed. Ex. `=> item` or `=> item, number`**
+
+## try-catch
+
+```sqrl
+{{~try}}
+This won't work: {{ *it.hi | validate}}
+{{#catch => err}}
+
+Uh-oh, error! Message was '{{err.message}}'
+{{/try}}
+```
+
+### Helper References:
+
+- `err`: the error

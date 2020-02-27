@@ -7,24 +7,21 @@ import Hint from 'react-admonitions'
 
 <Hint type="note">
     
-Many template engines offer you the option to <b>Compile</b> (which just renders your template) or <b>Precompile</b> (which turns your template into a function ahead of time). Squirrelly precompiles automatically, but is still faster than other engines.
+Squirrelly works out-of-the-box with Express.js.
+
+```js
+app.engine('html', require('squirrelly').renderFile)
+
+// Or, if you want to use the .squirrelly file extension
+
+app.set('view engine', 'squirrelly')
+
+```
 
 </Hint>
 
 ## Syntax
 
 ```js
-var myTemplate = 'Hi, my name is {{name}}'
-var compiled = Sqrl.Compile(myTemplate)
-//Returns an anonymous function:
-/*
-function anonymous(options, Sqrl) {
-var tmpltRes='Hi, my name is ';tmpltRes+=Sqrl.F.e(options.name);
-return tmpltRes
-}*/
-//This function can be called with options and Sqrl (Sqrl so that it can
-//access helpers and filters) and will return the rendered template.
 
-compiled({ name: 'Johnny Appleseed' }, Sqrl)
-//Returns "Hi, my name is Johnny Appleseed"
 ```

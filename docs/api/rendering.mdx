@@ -3,28 +3,17 @@ id: rendering
 title: Rendering
 ---
 
-import Hint from 'react-admonitions'
-
-<Hint type="note">
-    
-Many template engines offer you the option to <b>Compile</b> (which just renders your template) or <b>Precompile</b> (which turns your template into a function ahead of time). Squirrelly precompiles automatically, but is still faster than other engines.
-
-</Hint>
+Rendering a template compiles a template and then calls it with the data you pass to it.
 
 ## Syntax
 
-```js
-var myTemplate = 'Hi, my name is {{name}}'
-var compiled = Sqrl.Compile(myTemplate)
-//Returns an anonymous function:
-/*
-function anonymous(options, Sqrl) {
-var tmpltRes='Hi, my name is ';tmpltRes+=Sqrl.F.e(options.name);
-return tmpltRes
-}*/
-//This function can be called with options and Sqrl (Sqrl so that it can
-//access helpers and filters) and will return the rendered template.
+[TypeDoc doc page](https://squirrellyjs.github.io/squirrelly/modules/_render_.html#render)
 
-compiled({ name: 'Johnny Appleseed' }, Sqrl)
+## Example
+
+```js
+var myTemplate = "Hi, my name is {{it.name}}";
+Sqrl.render(myTemplate, { name: "Johnny Appleseed" });
+
 //Returns "Hi, my name is Johnny Appleseed"
 ```

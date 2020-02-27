@@ -3,28 +3,35 @@ id: filter-api
 title: Filters API
 ---
 
-import Hint from 'react-admonitions'
+Filters let you pass a value through functions.
 
-<Hint type="note">
-    
-Many template engines offer you the option to <b>Compile</b> (which just renders your template) or <b>Precompile</b> (which turns your template into a function ahead of time). Squirrelly precompiles automatically, but is still faster than other engines.
+## Examples
 
-</Hint>
-
-## Syntax
+**Simple example**
 
 ```js
-var myTemplate = 'Hi, my name is {{name}}'
-var compiled = Sqrl.Compile(myTemplate)
-//Returns an anonymous function:
-/*
-function anonymous(options, Sqrl) {
-var tmpltRes='Hi, my name is ';tmpltRes+=Sqrl.F.e(options.name);
-return tmpltRes
-}*/
-//This function can be called with options and Sqrl (Sqrl so that it can
-//access helpers and filters) and will return the rendered template.
+var myTemplate = "Hi, my name is {{it.name | reverse}}";
 
-compiled({ name: 'Johnny Appleseed' }, Sqrl)
-//Returns "Hi, my name is Johnny Appleseed"
+Sqrl.filters.define("reverse", function(str) {
+  return s
+    .split("")
+    .reverse()
+    .join("");
+});
+
+Sqrl.render(myTemplate, { name: "Ben" });
+// Hi, my name is neB
+```
+
+**With filter parameters**
+
+```js
+var myTemplate = "{{it.bio | replace('apples', 'watermelons') }}";
+
+Sqrl.filters.define("replace", function(str, search, replace) {
+  return str.replace(search, replace);
+});
+
+Sqrl.render(myTemplate, { bio: "I like to eat apples" });
+// I like to eat watermelons
 ```

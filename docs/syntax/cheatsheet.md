@@ -32,5 +32,7 @@ The current object key is {{key}}, and the value is {{val}}
 ## Logging to the console
 
 ```
-{{!console.log("The value of it.num is: " + it.num)}}
+{{!console.log("The value of it.num is: " + it.num);}}
 ```
+
+**Note: you must include a semicolon (`;`) or template compilation will fail**

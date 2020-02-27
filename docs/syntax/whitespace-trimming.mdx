@@ -2,36 +2,38 @@
 id: whitespace-control
 title: Whitespace Control
 ---
-
 import Hint from 'react-admonitions'
 
-Filters let you pipe content through some predefined functions.
+Squirrelly allows you to control the whitespace before or after tags.
+
+<Hint type="note" >
+
+Squirrelly borrows its whitespace control syntax from EJS
+
+</Hint>
 
 ## Basic Syntax
 
+Opening delimiters can be followed with `-` or `_`, and closing delimiters can be prefixed with `-` or `_`
+
+`_` at the beginning of a tag will trim all whitespace before it, and `_` at the end of a tag will trim all whitespace after it.
+
+`-` at the beginning of a tag will trim 1 character of whitespace before it, and `-` at the end of a tag will trim 1 character of whitespace after it.
+
+## Examples
+
 ```sqrl
+Hi
+{{- it.myname }}
 ```
 
-Squirrelly has a filter syntax similar to Nunjucks or Swig. Just put a `|` and then the filter name. You can pipe a reference to multiple filters if you want.
-
-## Example
-
 ```sqrl
-{{mystring | reverse | capitalize}}
+{{_ ~if (it.num) _}}
+
+{{/if}}
 ```
 
 <Hint type="note" title="Defining Filters">
 
-Remember, you'll need to [define each filter](define-filter) before you use it.
-
+By default, Squirrelly removes the first whitespace character after each tag. This can be [configured](../api/configuration)
 </Hint>
-
-## The `safe` flag
-
-To disable autoescaping, you can write
-
-```sqrl
-{{myreference | safe}}
-```
-
-This isn't a true filter, it just acts as a flag to let Squirrelly know not to autoescape.

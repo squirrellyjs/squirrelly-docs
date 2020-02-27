@@ -36,8 +36,6 @@ module.exports = {
           }
         },
         { to: 'docs/install', label: 'Docs', position: 'left' },
-        { to: 'docs/introduction', label: 'About', position: 'left' },
-        { to: 'docs/first-template', label: 'Learn', position: 'left' },
         { to: 'blog', label: 'Blog', position: 'left' },
         { to: 'playground', label: 'Playground', position: 'left' },
         {

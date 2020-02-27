@@ -42,3 +42,8 @@ Self-Closing Helpers are helpers that have no content, and are just called with 
 ```
 {{~helpername(parameters) /}}
 ```
+
+### Examples
+
+```
+{{~include("mypartial")/}}
