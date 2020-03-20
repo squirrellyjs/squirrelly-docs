@@ -1,4 +1,4 @@
-const versions = require('./versions.json')
+// const versions = require('./versions.json')
 
 module.exports = {
   title: 'SquirrellyJS',
@@ -24,20 +24,22 @@ module.exports = {
         src: 'img/logo/fit-noacorn.svg'
       },
       links: [
-        {
-          to: 'versions',
-          label: versions[0],
-          position: 'left',
-          style: {
-            whiteSpace: 'nowrap',
-            padding: '0.25rem 0.5rem 0.2rem 0.25rem',
-            fontSize: 'calc(0.9 * var(--ifm-font-size-base))',
-            textDecoration: 'underline'
-          }
-        },
-        { to: 'docs/install', label: 'Docs', position: 'left' },
+        // {
+        //   to: 'versions',
+        //   label: versions[0],
+        //   position: 'left',
+        //   style: {
+        //     whiteSpace: 'nowrap',
+        //     padding: '0.25rem 0.5rem 0.2rem 0.25rem',
+        //     fontSize: 'calc(0.9 * var(--ifm-font-size-base))',
+        //     textDecoration: 'underline'
+        //   }
+        // },
+        { to: 'docs/get-started/overview', label: 'Docs', position: 'left' },
         { to: 'blog', label: 'Blog', position: 'left' },
         { to: 'playground', label: 'Playground', position: 'left' },
+        { to: 'docs/v7/install', label: 'Docs - v7', position: 'right' },
+
         {
           href: 'https://gitter.im/squirrellyjs/Lobby',
           label: 'Community',

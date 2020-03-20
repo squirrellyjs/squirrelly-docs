@@ -60,5 +60,181 @@ module.exports = {
     ]
 
     // add custom tags, how-to caching, etc.
-  }
+  },
+  v7: [
+    {
+      type: 'category',
+      label: 'Get Started',
+      items: [
+        {
+          type: 'doc',
+          id: 'v7/overview'
+        },
+        {
+          type: 'doc',
+          id: 'v7/install'
+        },
+        {
+          type: 'doc',
+          id: 'v7/security'
+        }
+      ]
+    },
+    {
+      type: 'category',
+      label: 'Template Syntax',
+      items: [
+        {
+          type: 'doc',
+          id: 'v7/syntax-overview'
+        },
+        {
+          type: 'doc',
+          id: 'v7/cheatsheet'
+        },
+        {
+          type: 'doc',
+          id: 'v7/global-refs'
+        },
+        {
+          type: 'doc',
+          id: 'v7/helper-refs'
+        },
+        {
+          type: 'doc',
+          id: 'v7/filters'
+        },
+        {
+          type: 'doc',
+          id: 'v7/helpers'
+        },
+        {
+          type: 'doc',
+          id: 'v7/partials'
+        },
+        {
+          type: 'doc',
+          id: 'v7/custom-tags'
+        },
+        {
+          type: 'doc',
+          id: 'v7/builtin-helpers'
+        }
+      ]
+    },
+    {
+      type: 'category',
+      label: 'API',
+      items: [
+        {
+          type: 'doc',
+          id: 'v7/auto-escaping'
+        },
+        {
+          type: 'doc',
+          id: 'v7/compile'
+        },
+        {
+          type: 'doc',
+          id: 'v7/default-tags'
+        },
+        {
+          type: 'doc',
+          id: 'v7/define-filter'
+        },
+        {
+          type: 'doc',
+          id: 'v7/define-helper'
+        },
+        {
+          type: 'doc',
+          id: 'v7/define-native-helper'
+        },
+        {
+          type: 'doc',
+          id: 'v7/define-partial'
+        },
+        {
+          type: 'doc',
+          id: 'v7/load'
+        },
+        {
+          type: 'doc',
+          id: 'v7/render'
+        },
+        {
+          type: 'doc',
+          id: 'v7/render-file'
+        },
+        {
+          type: 'doc',
+          id: 'v7/set-default-filters'
+        }
+      ]
+    },
+    {
+      type: 'category',
+      label: 'About',
+      items: [
+        {
+          type: 'doc',
+          id: 'v7/introduction'
+        },
+        {
+          type: 'doc',
+          id: 'v7/why-squirrelly'
+        },
+        {
+          type: 'doc',
+          id: 'v7/performance'
+        },
+        {
+          type: 'doc',
+          id: 'v7/FAQ'
+        },
+        {
+          type: 'doc',
+          id: 'v7/contributors'
+        }
+      ]
+    },
+    {
+      type: 'category',
+      label: 'Behind the Scenes',
+      items: [
+        {
+          type: 'doc',
+          id: 'v7/how-squirrelly-works'
+        }
+      ]
+    },
+    {
+      type: 'category',
+      label: 'Guides',
+      items: [
+        {
+          type: 'doc',
+          id: 'v7/first-template'
+        },
+        {
+          type: 'doc',
+          id: 'v7/caching'
+        },
+        {
+          type: 'doc',
+          id: 'v7/runtime'
+        }
+      ]
+    },
+    {
+      type: 'category',
+      label: 'Resources',
+      items: [
+        {
+          type: 'doc',
+          id: 'v7/how-squirrelly-works'
+        }
+      ]
+    }
+  ]
 }
