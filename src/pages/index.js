@@ -18,7 +18,7 @@ const features = [
     imageUrl: 'img/undraw/outer_space.svg',
     description: (
       <>
-        <a href='docs/performance'>Benchmarks</a> demonstrate just how fast
+        <a href='docs/about/performance'>Benchmarks</a> demonstrate just how fast
         Squirrelly is. Think fast, then multiply by crazy speedy, and you have
         an idea of Squirrelly's performance.
       </>
