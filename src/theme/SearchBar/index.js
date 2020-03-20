@@ -64,7 +64,7 @@ const Search = props => {
         }
 
         hits = v8Hits.concat(v7Hits)
-        console.log(JSON.stringify(hits))
+        // console.log(JSON.stringify(hits))
       }
     })
 
