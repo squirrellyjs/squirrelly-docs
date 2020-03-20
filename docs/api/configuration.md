@@ -9,26 +9,24 @@ Similarly to many other libraries, Squirrelly allows you to customize its behavi
 
 ## List of options
 
-| Option          | Description                                        |         Type          |           Default            | Required? |
-| --------------- | :------------------------------------------------- | :-------------------: | :--------------------------: | :-------: |
-| `async`         | Whether to generate async templates                |       `boolean`       |           `false`            |    Yes    |
-| `asyncFilters`  | List of async filters by name                      |    `Array<string>`    |         `undefined`          |    No     |
-| `asyncHelpers`  | List of async helpers by name                      |    `Array<string>`    | `['include', 'includeFile']` |    No     |
-| `autoEscape`    | Whether to automatically XML-escape                |       `boolean`       |                              |    Yes    |
-| `autoTrim`      | Configure automatic whitespace trimming            | [autoTrim](#autotrim) |       `[false, "nl"`]        |    Yes    |
-| `cache`         | Cache templates by `name` or `filename`            |       `boolean`       |                              |    Yes    |
-| `defaultFilter` | Pass all interpolates through a function           |  `false | Function`   |           `false`            |    Yes    |
-| `filename`      | Absolute filepath of template (for caching)        |       `string`        |         `undefined`          |    No     |
-| `l`             | Function that returns helpers. See [l](#l)         |      `Function`       |      `defaultConfig.l`       |    Yes    |
-| `name`          | Template name (for caching)                        |       `string`        |         `undefined`          |    No     |
-| `plugins`       | Plugins object                                     |  [plugins](#plugins)  |   `defaultConfig.plugins`    |    Yes    |
-| `root`          | Base filepath. Defaults to `"\"` internally        |       `string`        |         `undefined`          |    No     |
-| `storage`       | Object containing templates, helpers, filters      |  [storage](#storage)  |   `defaultConfig.storage`    |    Yes    |
-| `tags`          | Template delimiters. [CAVEATS](#delimiter-caveats) |  `[string, string]`   |        `["{{", "}}"]`        |    Yes    |
-| `useWith`       | Use `with(){}` to have data scope as global        |       `boolean`       |         `undefined`          |    No     |
-| `varName`       | Name of data object                                |       `string`        |            `"it"`            |    Yes    |
-| `view cache`    | Overrides `cache`                                  |       `boolean`       |         `undefined`          |    No     |
-| `views`         | Absolute filepath to views directory               |       `string`        |         `undefined`          |    No     |
+| Option          | Description                                        |         Type          |         Default         | Required? |
+| --------------- | :------------------------------------------------- | :-------------------: | :---------------------: | :-------: |
+| `async`         | Whether to generate async templates                |       `boolean`       |         `false`         |    Yes    |
+| `autoEscape`    | Whether to automatically XML-escape                |       `boolean`       |                         |    Yes    |
+| `autoTrim`      | Configure automatic whitespace trimming            | [autoTrim](#autotrim) |     `[false, "nl"`]     |    Yes    |
+| `cache`         | Cache templates by `name` or `filename`            |       `boolean`       |                         |    Yes    |
+| `defaultFilter` | Pass all interpolates through a function           |  `false | Function`   |         `false`         |    Yes    |
+| `filename`      | Absolute filepath of template (for caching)        |       `string`        |       `undefined`       |    No     |
+| `l`             | Function that returns helpers. See [l](#l)         |      `Function`       |    `defaultConfig.l`    |    Yes    |
+| `name`          | Template name (for caching)                        |       `string`        |       `undefined`       |    No     |
+| `plugins`       | Plugins object                                     |  [plugins](#plugins)  | `defaultConfig.plugins` |    Yes    |
+| `root`          | Base filepath. Defaults to `"\"` internally        |       `string`        |       `undefined`       |    No     |
+| `storage`       | Object containing templates, helpers, filters      |  [storage](#storage)  | `defaultConfig.storage` |    Yes    |
+| `tags`          | Template delimiters. [CAVEATS](#delimiter-caveats) |  `[string, string]`   |     `["{{", "}}"]`      |    Yes    |
+| `useWith`       | Use `with(){}` to have data scope as global        |       `boolean`       |       `undefined`       |    No     |
+| `varName`       | Name of data object                                |       `string`        |         `"it"`          |    Yes    |
+| `view cache`    | Overrides `cache`                                  |       `boolean`       |       `undefined`       |    No     |
+| `views`         | Absolute filepath to views directory               |       `string`        |       `undefined`       |    No     |
 
 ### Delimiter Caveats
 

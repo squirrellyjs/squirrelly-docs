@@ -37,6 +37,7 @@ module.exports = {
     'Template Syntax': [
       'syntax/overview',
       'syntax/cheatsheet',
+      'syntax/async',
       'syntax/interpolate',
       'syntax/filters',
       'syntax/helpers',

@@ -27,7 +27,7 @@ Sqrl.helpers.define('async-test', resolveAfter2Seconds)
 async function doAsyncStuff () {
   console.log(
     await Sqrl.render(
-      '{{~async-test()/}}',
+      '{{~async async-test()/}}',
       {},
       { async: true, asyncHelpers: ['async-test'] }
     )
@@ -38,7 +38,7 @@ async function doAsyncStuff () {
 // ALTERNATIVELY, WITH CALLBACKS:
 
 Sqrl.render(
-  '{{~async-test()/}}',
+  '{{~async async-test()/}}',
   {},
   { async: true, asyncHelpers: ['async-test'] },
   function (err, res) {
