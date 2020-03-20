@@ -18,9 +18,9 @@ const features = [
     imageUrl: 'img/undraw/outer_space.svg',
     description: (
       <>
-        <a href='docs/about/performance'>Benchmarks</a> demonstrate just how fast
-        Squirrelly is. Think fast, then multiply by crazy speedy, and you have
-        an idea of Squirrelly's performance.
+        <a href='docs/about/performance'>Benchmarks</a> demonstrate just how
+        fast Squirrelly is. Think fast, then multiply by crazy speedy, and you
+        have an idea of Squirrelly's performance.
       </>
     )
   },
@@ -40,15 +40,14 @@ const features = [
     description: (
       <>
         Squirrelly comes with the necessary features to create incredibly
-        powerful templates. Helpers, filters, native code, partials... with a
-        minzipped bundle cost of only ~2.2KB! The runtime library is even
-        smaller: only 600 bytes minzipped!
+        powerful templates. Helpers, filters, native code, partials, template
+        inheritance... with a minzipped bundle cost of only ~3.5KB!
       </>
     )
   }
 ]
 
-function Home () {
+function Home() {
   // const context = useDocusaurusContext()
   // const { siteConfig = {} } = context
   return (
@@ -104,7 +103,7 @@ function Home () {
       </div>
       <div className={styles.announcement}>
         <div className={styles['announcement-inner']}>
-          <a href='https://github.com/facebook/Docusaurus/issues/789'>
+          <a href='/blog/squirrelly-version-8'>
             Squirrelly v8 Beta has been released!
           </a>
         </div>

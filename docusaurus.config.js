@@ -36,7 +36,11 @@ module.exports = {
         //     textDecoration: 'underline'
         //   }
         // },
-        { to: 'docs/get-started/overview', label: 'Docs', position: 'left' },
+        {
+          to: 'docs/get-started/overview',
+          label: 'Docs - v8 (NEW)',
+          position: 'left'
+        },
         { to: 'blog', label: 'Blog', position: 'left' },
         { to: 'playground', label: 'Playground', position: 'left' },
         { to: 'docs/v7/install', label: 'Docs - v7', position: 'right' },
