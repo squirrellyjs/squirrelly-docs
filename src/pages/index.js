@@ -22,7 +22,7 @@ const features = [
         fast Squirrelly is. Think fast, then multiply by crazy speedy, and you
         have an idea of Squirrelly's performance.
       </>
-    )
+    ),
   },
   {
     title: <>Easy to Use</>,
@@ -32,7 +32,7 @@ const features = [
         Squirrelly's template syntax (inspired by Handlebars and Nunjucks) is
         easy to read and write, and incredibly powerful.
       </>
-    )
+    ),
   },
   {
     title: <>Powerful and Lightweight</>,
@@ -43,8 +43,8 @@ const features = [
         powerful templates. Helpers, filters, native code, partials, template
         inheritance... with a minzipped bundle cost of only ~3.5KB!
       </>
-    )
-  }
+    ),
+  },
 ]
 
 function Home() {
@@ -84,7 +84,7 @@ function Home() {
           <div className={styles['index-ctas']}>
             <Link
               className={styles['index-ctas-get-started-button']}
-              to={useBaseUrl('docs/install')}
+              to={useBaseUrl('docs/v7/install')}
             >
               Get Started
             </Link>
