@@ -10,7 +10,7 @@ Builtin helpers are helpers that come as part of the Squirrelly library. They ca
 ## if/else
 
 ```sqrl
-{{~if(it.somevalue === 1)}}
+{{@if(it.somevalue === 1)}}
 Display this
 {{#else}}
 Display this
@@ -22,7 +22,7 @@ _This is a native helper_
 ## each
 
 ```sqrl
-{{~each(it.somearray) => val, index}}
+{{@each(it.somearray) => val, index}}
 Display this
 The current array element is {{val}}
 The current index is {{index}}
@@ -39,10 +39,10 @@ The current index is {{index}}
 ## foreach
 
 ```sqrl
-{{~foreach(it.someobject) => key, val}}
+{{@foreach(it.someobject) => key, val}}
 This loops over each of an objects keys and values.
-The value of the current child is {{@this}}
-The current key is {{@key}}
+The value of the current child is {{val}}
+The current key is {{key}}
 ```
 
 ### Helper References:
@@ -55,7 +55,7 @@ The current key is {{@key}}
 ## try-catch
 
 ```sqrl
-{{~try}}
+{{@try}}
 This won't work: {{ *it.hi | validate}}
 {{#catch => err}}
 

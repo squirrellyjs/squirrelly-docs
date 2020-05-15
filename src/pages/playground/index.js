@@ -86,18 +86,18 @@ var initialTemplate8 = `Hi
 {{!console.log("Hope you like Squirrelly!")}}
 {{it.htmlstuff}}
 
-{{~foreach(it.obj) => key, val}}
+{{@foreach(it.obj) => key, val}}
 Reversed value: {{val|reverse}}, Key: {{key}}
 
-{{~if(key==="thirdchild")}}
-{{~each(it.obj[key]) => val, index}}
+{{@if(key==="thirdchild")}}
+{{@each(it.obj[key]) => val, index}}
     Salutations! Index: {{index}}, val: {{val}}
 
 {{/each}}
 {{/if}}
 {{/foreach}}
 
-{{~customhelper()}}
+{{@customhelper()}}
 {{#cabbage}}
 Cabbages taste good
 {{!console.log("Hi from inside a template")}}
@@ -105,7 +105,7 @@ Cabbages taste good
 As do pineapples
 {{/customhelper}}
 
-This is a partial: {{~include("mypartial", {num: 3})/}}
+This is a partial: {{@include("mypartial", {num: 3})/}}
 `
 
 var initialData = `"htmlstuff": "<script>alert('hey')</script><p>alert('hey')</p><p>alert('hey')</p><p>alert('hey')</p>",

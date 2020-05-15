@@ -17,7 +17,7 @@ There are 5 language items in Squirrelly:
 - [Helpers](helpers) start with `~` and are for logic in the template. Loops and conditionals are both implemented as native helpers, a special kind of helper that compiles into native JS code before rendering. <br/>Helpers use blocks (that start with `#`) for logical separation.<br/> _Examples_:
   - If/Else:
     ```
-    {{ ~if (it.number === 3) }}
+    {{ @if (it.number === 3) }}
     Number is three
     {{ #elif (it.number === 4) }}
     Number is four

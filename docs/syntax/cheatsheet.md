@@ -6,7 +6,7 @@ title: Cheatsheet
 ## Conditionals
 
 ```sqrl
-{{~if(it.someval === "someothervalue")}}
+{{@if(it.someval === "someothervalue")}}
 Display this!
 {{#else}}
 They don't equal
@@ -16,7 +16,7 @@ They don't equal
 ## Looping over arrays
 
 ```sqrl
-{{~each(it.someArray) => val, index}}
+{{@each(it.someArray) => val, index}}
 The current array item is {{val}}, the current index is {{index}}
 {{/each}}
 ```
@@ -24,7 +24,7 @@ The current array item is {{val}}, the current index is {{index}}
 ## Looping over objects
 
 ```
-{{~foreach(it.someObject) => key, val}}
+{{@foreach(it.someObject) => key, val}}
 The current object key is {{key}}, and the value is {{val}}
 {{/foreach}}
 ```

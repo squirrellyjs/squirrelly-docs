@@ -12,7 +12,7 @@ Essentially, just put an `async` in front of a helper or filter name.
 ## Examples
 
 ```
-{{~ async helpername(parameters) => var1 }}
+{{@ async helpername(parameters) => var1 }}
 
 {{/helpername}}
 ```
@@ -22,5 +22,5 @@ Essentially, just put an `async` in front of a helper or filter name.
 ```
 
 ```
-{{~async include("mypartial") /}}
+{{@async include("mypartial") /}}
 ```

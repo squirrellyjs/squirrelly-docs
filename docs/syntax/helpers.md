@@ -8,7 +8,7 @@ Helpers are an easy way to include logic within a template. Conditionals, loopin
 ## Basic Syntax
 
 ```
-{{~helpername(parameters) => [var1, var2]}}
+{{@helpername(parameters) => [var1, var2]}}
 
 Content goes here
 
@@ -22,7 +22,7 @@ You can have as many blocks as you want within a helper.
 ## Example
 
 ```
-{{~portfolio( {userID: 3838357} )}}
+{{@portfolio( {userID: 3838357} )}}
 Joe Edrick
 {{#tagline}}
 Cool Coder Person
@@ -40,10 +40,10 @@ Self-Closing Helpers are helpers that have no content, and are just called with 
 ### Basic Syntax
 
 ```
-{{~helpername(parameters) /}}
+{{@helpername(parameters) /}}
 ```
 
 ### Examples
 
 ```
-{{~include("mypartial")/}}
+{{@include("mypartial")/}}
