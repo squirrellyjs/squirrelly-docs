@@ -1,29 +1,32 @@
 /**
- * Copyright (c) 2017-present, Facebook, Inc.
+ * Copyright (c) Facebook, Inc. and its affiliates.
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
 
-import React from 'react'
-import Head from '@docusaurus/Head'
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
-import useBaseUrl from '@docusaurus/useBaseUrl'
+import React from 'react';
+import Head from '@docusaurus/Head';
+import isInternalUrl from '@docusaurus/isInternalUrl';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
-import ThemeProvider from '@theme/ThemeProvider'
-import Navbar from '@theme/Navbar'
-import Footer from '@theme/Footer'
+import ThemeProvider from '@theme/ThemeProvider';
+import TabGroupChoiceProvider from '@theme/TabGroupChoiceProvider';
+import AnnouncementBar from '@theme/AnnouncementBar';
+import Navbar from '@theme/Navbar';
+import Footer from '@theme/Footer';
 
-import './styles.css'
+import './styles.css';
 
-function Layout (props) {
-  const { siteConfig = {} } = useDocusaurusContext()
+function Layout(props) {
+  const {siteConfig = {}} = useDocusaurusContext();
   const {
     favicon,
     title: siteTitle,
-    themeConfig: { image: defaultImage },
-    url: siteUrl
-  } = siteConfig
+    themeConfig: {image: defaultImage},
+    url: siteUrl,
+  } = siteConfig;
   const {
     children,
     title,
@@ -32,38 +35,48 @@ function Layout (props) {
     image,
     keywords,
     permalink,
-    version
-  } = props
-  const metaTitle = title ? `${title} | ${siteTitle}` : siteTitle
-  const metaImage = image || defaultImage
-  const metaImageUrl = siteUrl + useBaseUrl(metaImage)
-  const faviconUrl = useBaseUrl(favicon)
+    version,
+  } = props;
+  const metaTitle = title ? `${title} | ${siteTitle}` : siteTitle;
+
+  const metaImage = image || defaultImage;
+  let metaImageUrl = siteUrl + useBaseUrl(metaImage);
+  if (!isInternalUrl(metaImage)) {
+    metaImageUrl = metaImage;
+  }
+
+  const faviconUrl = useBaseUrl(favicon);
 
   return (
     <ThemeProvider>
-      <Head>
-        {/* TODO: Do not assume that it is in english language */}
-        <html lang='en' />
+      <TabGroupChoiceProvider>
+        <Head>
+          {/* TODO: Do not assume that it is in english language */}
+          <html lang="en" />
 
-        <meta httpEquiv='x-ua-compatible' content='ie=edge' />
-        {metaTitle && <title>{metaTitle}</title>}
-        {metaTitle && <meta property='og:title' content={metaTitle} />}
-        {favicon && <link rel='shortcut icon' href={faviconUrl} />}
-        {description && <meta name='description' content={description} />}
-        {description && (
-          <meta property='og:description' content={description} />
-        )}
-        {version && <meta name='docsearch:version' content={version} />}
-        {keywords && keywords.length && (
-          <meta name='keywords' content={keywords.join(',')} />
-        )}
-        {metaImage && <meta property='og:image' content={metaImageUrl} />}
-        {metaImage && <meta property='twitter:image' content={metaImageUrl} />}
-        {metaImage && (
-          <meta name='twitter:image:alt' content={`Image for ${metaTitle}`} />
-        )}
-        {permalink && <meta property='og:url' content={siteUrl + permalink} />}
-        <meta name='twitter:card' content='summary' />
+          {metaTitle && <title>{metaTitle}</title>}
+          {metaTitle && <meta property="og:title" content={metaTitle} />}
+          {favicon && <link rel="shortcut icon" href={faviconUrl} />}
+          {description && <meta name="description" content={description} />}
+          {description && (
+            <meta property="og:description" content={description} />
+          )}
+          {version && <meta name="docsearch:version" content={version} />}
+          {keywords && keywords.length && (
+            <meta name="keywords" content={keywords.join(',')} />
+          )}
+          {metaImage && <meta property="og:image" content={metaImageUrl} />}
+          {metaImage && (
+            <meta property="twitter:image" content={metaImageUrl} />
+          )}
+          {metaImage && (
+            <meta name="twitter:image:alt" content={`Image for ${metaTitle}`} />
+          )}
+          {permalink && (
+            <meta property="og:url" content={siteUrl + permalink} />
+          )}
+          <meta name="twitter:card" content="summary_large_image" />
+
         {/* Starting to change */}
 
         {permalink === '/' && (
@@ -103,12 +116,14 @@ function Layout (props) {
         />
         <meta name='theme-color' content='#ffffff' />
         {/* End Changes */}
-      </Head>
-      <Navbar />
-      <div className='main-wrapper'>{children}</div>
-      {!noFooter && <Footer />}
+        </Head>
+        <AnnouncementBar />
+        <Navbar />
+        <div className="main-wrapper">{children}</div>
+        {!noFooter && <Footer />}
+      </TabGroupChoiceProvider>
     </ThemeProvider>
-  )
+  );
 }
 
-export default Layout
+export default Layout;
