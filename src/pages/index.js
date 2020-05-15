@@ -1,36 +1,82 @@
-/**
- * Copyright (c) 2017-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
 import React from 'react'
 import classnames from 'classnames'
 import Layout from '@theme/Layout'
 import Link from '@docusaurus/Link'
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 import useBaseUrl from '@docusaurus/useBaseUrl'
-import styles from './styles.module.css'
+import styles from './index.module.css'
+import CodeSnippet from '@site/src/theme/CodeSnippet'
+import Tabs from '@theme/Tabs'
+import TabItem from '@theme/TabItem'
+
+const snippets = [
+  {
+    label: 'Example 1',
+    config: `Hi {{it.user}}!
+
+<ul>
+{{@each(it.user.friends) => friend}}
+  <li>{{friend.first | capitalize}} {{friend.last}}</li>
+{{/each}}
+</ul>
+
+Here are your badges:
+{{it.badges | join(", ") | capitalize}}
+`,
+  },
+  {
+    label: 'Layouts',
+    config: `{{@extends('layout1', it)}}
+This is the content of the page
+{{#title}}
+Custom Title
+{{#description}}
+{{it.name}}'s cool site
+{{/extends}}
+`,
+  },
+  {
+    label: 'Example 3',
+    config: `{{! /* Embedded JS templates mean that you can
+  write any valid JS expression inside interpolate tags: */ }}
+
+{{ 2 + 4 }}`,
+  },
+  {
+    label: 'Partials',
+    config: `{{@include("mypartial") /}}
+
+{{@includeFile('./navbar', {pages: [
+  'home',
+  'about',
+  'users'
+]}) /}}`,
+  },
+]
+
+function Snippet({ label, config }) {
+  return <CodeSnippet className={styles.configSnippet} snippet={config} />
+}
 
 const features = [
   {
-    title: <>Unbeatable Performance</>,
+    title: <>Fantastic Performance</>,
     imageUrl: 'img/undraw/outer_space.svg',
     description: (
       <>
-        <a href='docs/about/performance'>Benchmarks</a> demonstrate just how
-        fast Squirrelly is. Think fast, then multiply by crazy speedy, and you
-        have an idea of Squirrelly's performance.
+        Squirrelly has best-in-class performance, and beats other JS template
+        engines in almost all benchmarks! Read more{' '}
+        <a href='docs/about/performance'>here</a>
       </>
     ),
   },
   {
-    title: <>Easy to Use</>,
+    title: <>Powerful Syntax</>,
     imageUrl: 'img/undraw/coding.svg',
     description: (
       <>
-        Squirrelly's template syntax (inspired by Handlebars and Nunjucks) is
-        easy to read and write, and incredibly powerful.
+        Squirrelly's template syntax takes inspiration from Nunjucks,
+        Handlebars, Django, and Swig.
       </>
     ),
   },
@@ -39,98 +85,174 @@ const features = [
     imageUrl: 'img/undraw/collecting.svg',
     description: (
       <>
-        Squirrelly comes with the necessary features to create incredibly
-        powerful templates. Helpers, filters, native code, partials, template
-        inheritance... with a minzipped bundle cost of only ~3.5KB!
+        Squirrelly weighs less than 4 KB gzipped, despite supporting helpers,
+        filters, partials, template inheritance, and asynchronous templates.
+      </>
+    ),
+  },
+  {
+    title: <>Configurable and pluggable</>,
+    imageUrl: 'img/undraw/software_engineer.svg',
+    description: (
+      <>
+        Squirrelly has many configuration options. You can control whitespace
+        trimming, use custom delimiters, add plugins, or toggle caching --
+        without any convoluted external APIs. Squirrelly also supports plugins,
+        which can be chained together Gulp-style to modify template syntax,
+        minify HTML, or do pretty much anything else!
       </>
     ),
   },
 ]
 
+function Feature({ imageUrl, title, description }) {
+  const imgUrl = useBaseUrl(imageUrl)
+  return (
+    <div className={classnames('col col--6', styles.feature)}>
+      {imgUrl && (
+        <div className='text--center'>
+          <img
+            className={classnames('padding-vert--md', styles.featureImage)}
+            src={imgUrl}
+            alt={title}
+          />
+        </div>
+      )}
+      <h3>{title}</h3>
+      <p>{description}</p>
+    </div>
+  )
+}
+
 function Home() {
-  // const context = useDocusaurusContext()
-  // const { siteConfig = {} } = context
+  const context = useDocusaurusContext()
+  const { siteConfig = {} } = context
   return (
     <Layout
-      permalink='/'
-      title='SquirrellyJS'
-      description='Blazing-fast, lightweight, powerful and modern JS template engine'
+      title={`${siteConfig.title}`}
+      description='Lighweight, powerful, blazing fast JS template engine'
+      keywords={[
+        'template engine',
+        'fastest template engine',
+        'best js template engine',
+        'handlebars',
+        'squirrelly',
+      ]}
     >
-      <div className={styles['index-hero']}>
-        <div className={styles['index-hero-inner']}>
-          <img
-            alt='Squirrel'
-            className={styles['index-hero-logo']}
-            src={useBaseUrl('img/logo/fit-acorn.svg')}
-            style={{ width: '35%' }}
-          />
-          <h1 className={styles['index-hero-project-tagline']}>
-            Squirrelly is a
-            <br />{' '}
-            <span className={styles['index-hero-project-keywords']}>
-              - Powerful
-            </span>{' '}
-            <br />
-            <span className={styles['index-hero-project-keywords']}>
-              - Lightweight
-            </span>{' '}
-            <br />
-            <span className={styles['index-hero-project-keywords']}>
-              - Blazing-Fast
-            </span>{' '}
-            <br />
-            JS template engine
-          </h1>
-          <div className={styles['index-ctas']}>
-            <Link
-              className={styles['index-ctas-get-started-button']}
-              to={useBaseUrl('docs/v7/install')}
-            >
-              Get Started
-            </Link>
-            <span className={styles['index-ctas-github-button']}>
-              <iframe
-                src='https://ghbtns.com/github-btn.html?user=squirrellyjs&amp;repo=squirrelly&amp;type=star&amp;count=true&amp;size=large'
-                frameBorder={0}
-                scrolling={0}
-                width={160}
-                height={30}
-                title='GitHub Stars'
+      <header className={classnames('hero', styles.heroBanner)}>
+        <div className='container'>
+          <div className='row'>
+            <div className={classnames('col col--5 col--offset-1')}>
+              <h1 className='hero__title'>{siteConfig.title}</h1>
+              <p className='hero__subtitle'>
+                Powerful, lightweight, pluggable JS template engine
+              </p>
+              <p style={{ fontStyle: 'italic' }}>
+                Written in TypeScript. Supports helpers, partials, filters,
+                template inheritance, and async templates.
+              </p>
+              <div className={styles.buttons + ' ' + styles.buttonDiv}>
+                <Link
+                  className={classnames(
+                    'button button--outline button--secondary button--lg',
+                    styles.getStarted
+                  )}
+                  to={useBaseUrl('docs/get-started/overview')}
+                >
+                  Get Started
+                </Link>
+              </div>
+            </div>
+            <div className={classnames('col col--5')}>
+              <img
+                alt='Squirrel'
+                className={styles['heroImg']}
+                src={useBaseUrl('img/logo/fit-acorn.svg')}
               />
-            </span>
+            </div>
           </div>
         </div>
-      </div>
-      <div className={styles.announcement}>
-        <div className={styles['announcement-inner']}>
-          <a href='/blog/squirrelly-version-8'>
-            Squirrelly v8 Beta has been released!
-          </a>
-        </div>
-      </div>
-
+      </header>
       <main>
+        <div className='container'>
+          <div className='row'>
+            <div className={classnames('col col--6')}>
+              {snippets && snippets.length && (
+                <section className={styles.configSnippets}>
+                  <Tabs
+                    defaultValue={snippets[0].label}
+                    values={snippets.map((props, idx) => {
+                      return { label: props.label, value: props.label }
+                    })}
+                  >
+                    {snippets.map((props, idx) => (
+                      <TabItem key={idx} value={props.label}>
+                        <Snippet {...props} />
+                      </TabItem>
+                    ))}
+                  </Tabs>
+                </section>
+              )}
+            </div>
+
+            <div className={classnames(`${styles.pitch} col col--6`)}>
+              <h2>JavaScript Templating: Reimagined</h2>
+              <p style={{ paddingTop: '0.5rem' }}>
+                We drew inspiration from template engines like Nunjucks,
+                Handlebars, EJS, and Pug to create a template engine with the
+                best parts of each.
+              </p>
+              <p>
+                Squirrelly is what we like to call a <em>semi-embedded</em>{' '}
+                template engine. It has a rich syntax, but allows you to use
+                valid JavaScript syntax inside of your templates. All Squirrelly
+                templates compile into plain, understandable JavaScript.
+              </p>
+              <b>A Few Features</b>
+              <ul>
+                <li>Lightweight size: only 4KB gzipped</li>
+                <li>
+                  Very fast parsing and compilation. Check out{' '}
+                  <a href='https://ghcdn.rawgit.org/squirrellyjs/squirrelly/master/browser-tests/benchmark.html'>
+                    these benchmarks
+                  </a>
+                </li>
+                <li>Template inheritance (kinda Nunjucks-style?)</li>
+                <li>
+                  Fantastic partial, layout, and file handling support, based
+                  off EJS'
+                </li>
+                <li>Express.js support with high performance</li>
+                <li>Async support</li>
+
+                <li>TypeScript types and UMD build</li>
+                <li>Custom delimiters</li>
+                <li>Whitespace control, EJS-style</li>
+                <li>
+                  Custom tag-type prefixes.{' '}
+                  <i>
+                    Example: you could change helpers to begin with{' '}
+                    <code>{'~'}</code> instead of <code>{'@'}</code>
+                  </i>
+                </li>
+                <li>
+                  Beautiful informative errors.{' '}
+                  <i>
+                    If you accidentally leave a tag, string, or multiline
+                    comment unclosed, Squirrelly will tell you where and what
+                    the problem is
+                  </i>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
         {features && features.length && (
           <section className={styles.features}>
-            <div className='container'>
+            <div className='container margin-vert--md'>
               <div className='row'>
-                {features.map(({ imageUrl, title, description }, idx) => (
-                  <div
-                    key={idx}
-                    className={classnames('col col--4', styles.feature)}
-                  >
-                    {imageUrl && (
-                      <div className='text--center'>
-                        <img
-                          className={styles.featureImage}
-                          src={useBaseUrl(imageUrl)}
-                          alt={title}
-                        />
-                      </div>
-                    )}
-                    <h3>{title}</h3>
-                    <p>{description}</p>
-                  </div>
+                {features.map((props, idx) => (
+                  <Feature key={idx} {...props} />
                 ))}
               </div>
             </div>

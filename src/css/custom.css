@@ -6,16 +6,18 @@
 
 /* You can override the default Infima variables here. */
 
-/* Used https://www.sessions.edu/color-calculator/ */
+/* Old: https://www.sessions.edu/color-calculator/
+   New: https://www.canva.com/colors/color-wheel/
+*/
 
 :root {
-  --ifm-color-primary: #3ba486;
-  --ifm-color-primary-dark: #359479;
-  --ifm-color-primary-darker: #328b72;
-  --ifm-color-primary-darkest: #29735e;
-  --ifm-color-primary-light: #41b493;
-  --ifm-color-primary-lighter: #45bc9a;
-  --ifm-color-primary-lightest: #5dc5a7;
+  --ifm-color-primary: #3b77a4;
+  --ifm-color-primary-dark: #356b94;
+  --ifm-color-primary-darker: #32658b;
+  --ifm-color-primary-darkest: #295373;
+  --ifm-color-primary-light: #4183b4;
+  --ifm-color-primary-lighter: #4589bc;
+  --ifm-color-primary-lightest: #5d98c5;
 }
 
 .docusaurus-highlight-code-line {
