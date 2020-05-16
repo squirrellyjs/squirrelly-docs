@@ -15,7 +15,7 @@ module.exports = {
     {
       src: 'https://embed.runkit.com/',
       async: true,
-      defer: true,
+      // defer: true, // this seems to create problems when deployed
     },
   ],
   themeConfig: {
