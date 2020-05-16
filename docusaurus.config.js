@@ -8,6 +8,15 @@ module.exports = {
   favicon: 'icons/favicon.ico',
   organizationName: 'squirrellyjs', // Usually your GitHub org/user name.
   projectName: 'squirrelly-docs', // Usually your repo name.
+  scripts: [
+    // String format.
+    // 'https://docusaurus.io/script.js',
+    // Object format.
+    {
+      src: 'https://embed.runkit.com/',
+      async: false,
+    },
+  ],
   themeConfig: {
     announcementBar: {
       id: 'v8-beta',

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 export default class Comments extends Component {
-  componentDidMount () {
+  componentDidMount() {
     const script = document.createElement('script')
     const anchor = document.getElementById('inject-comments-for-uterances')
     script.setAttribute('src', 'https://utteranc.es/client.js')
@@ -14,8 +14,8 @@ export default class Comments extends Component {
     anchor.appendChild(script)
   }
 
-  render () {
-    console.log('comments rendering...')
+  render() {
+    // console.log('comments rendering...')
     return <div id='inject-comments-for-uterances' />
   }
 }

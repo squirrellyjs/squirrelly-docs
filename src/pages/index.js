@@ -6,6 +6,7 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 import useBaseUrl from '@docusaurus/useBaseUrl'
 import styles from './index.module.css'
 import CodeSnippet from '@site/src/theme/CodeSnippet'
+import RunKit from '@site/src/theme/RunkitEmbed'
 import Tabs from '@theme/Tabs'
 import TabItem from '@theme/TabItem'
 
@@ -193,6 +194,13 @@ function Home() {
                   </Tabs>
                 </section>
               )}
+              <h3>Interactive Playground</h3>
+              <RunKit
+                source={`var Sqrl = require("squirrelly@8.0.0-beta.11")
+
+Sqrl.render("Hi {{it.user}}", {user: "Ada Lovelace"})
+`}
+              />
             </div>
 
             <div className={classnames(`${styles.pitch} col col--6`)}>
