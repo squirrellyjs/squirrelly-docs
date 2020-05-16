@@ -4461,7 +4461,7 @@ hogan.js@^3.0.2:
     mkdirp "0.3.0"
     nopt "1.0.10"
 
-hoist-non-react-statics@^3.1.0:
+hoist-non-react-statics@^3.1.0, hoist-non-react-statics@^3.3.0:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz#ece0acaf71d62c2969c2ec59feff42a4b1a85b45"
   integrity sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==
@@ -7473,6 +7473,14 @@ react-admonitions@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/react-admonitions/-/react-admonitions-2.1.0.tgz#c530ef8c6803ec1fa94dd948d1ff89d72a3bb2f7"
   integrity sha512-Ydq3Ski6eRsHnXk9xfCcRnWdlYePQQ6+NvdtOkBi/cCZLp2EF5fbIKjMbWa6Z+hJG8JHgwku4743bQRYOiIW4w==
+
+react-async-script@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/react-async-script/-/react-async-script-1.1.1.tgz#f481c6c5f094bf4b94a9d52da0d0dda2e1a74bdf"
+  integrity sha512-pmgS3O7JcX4YtH/Xy//NXylpD5CNb5T4/zqlVUV3HvcuyOanatvuveYoxl3X30ZSq/+q/+mSXcNS8xDVQJpSeA==
+  dependencies:
+    hoist-non-react-statics "^3.3.0"
+    prop-types "^15.5.0"
 
 react-dev-utils@^10.2.1:
   version "10.2.1"

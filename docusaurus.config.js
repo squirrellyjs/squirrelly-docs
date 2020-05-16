@@ -14,7 +14,7 @@ module.exports = {
     // Object format.
     {
       src: 'https://embed.runkit.com/',
-      async: true,
+      // async: true,
       // defer: true, // this seems to create problems when deployed
     },
   ],
