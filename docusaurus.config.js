@@ -14,14 +14,15 @@ module.exports = {
     // Object format.
     {
       src: 'https://embed.runkit.com/',
-      async: false,
+      async: true,
+      defer: true,
     },
   ],
   themeConfig: {
     announcementBar: {
-      id: 'v8-beta',
+      id: 'v8-stable',
       content:
-        '<a target="_blank" rel="noopener noreferrer" href="https://github.com/squirrellyjs/squirrelly">Squirrelly version 8 beta</a> has been released!',
+        '<a target="_blank" rel="noopener noreferrer" href="https://github.com/squirrellyjs/squirrelly">Squirrelly version 8</a> has been released!',
     },
     prism: {
       additionalLanguages: ['ejs'],
@@ -62,7 +63,7 @@ module.exports = {
           items: [
             {
               label: 'Version 8 (NEW)',
-              to: 'docs/get-started/overview',
+              to: 'docs/get-started/overview', // TODO: use activeBaseTest once merged
             },
 
             {
@@ -72,9 +73,20 @@ module.exports = {
             },
           ],
         },
-
-        { to: 'blog', label: 'Blog', position: 'left' },
-        { to: 'playground', label: 'Playground', position: 'left' },
+        {
+          to: 'docs/about/introduction',
+          label: 'About',
+          position: 'left',
+          activeBasePath: 'docs/about',
+        },
+        {
+          to: 'docs/learn/async',
+          label: 'Learn',
+          position: 'left',
+          activeBasePath: 'docs/learn', // TODO: use activeBaseTest once merged
+        },
+        { to: 'playground', label: 'REPL', position: 'left' },
+        { to: 'blog', label: 'Blog', position: 'right' },
 
         {
           href: 'https://gitter.im/squirrellyjs/Lobby',

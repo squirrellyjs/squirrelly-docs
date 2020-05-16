@@ -7,32 +7,11 @@
 
 module.exports = {
   docs: {
-    Squirrelly: [
-      {
-        type: 'category',
-        label: 'About',
-        items: [
-          'about/introduction',
-          'about/why-squirrelly',
-          'about/performance',
-          'about/FAQ',
-          'about/how-squirrelly-works'
-        ]
-      },
-      {
-        type: 'category',
-        label: 'Learn',
-        items: ['learn/async'] // TODO: add tutorials on plugins, etc.
-      },
-      {
-        type: 'category',
-        label: 'Resources',
-        items: ['resources/integrations']
-      },
+    'Get Started': [
       'get-started/overview',
       'get-started/install',
       'get-started/security',
-      'get-started/first-template'
+      'get-started/first-template',
     ],
     'Template Syntax': [
       'syntax/overview',
@@ -44,7 +23,7 @@ module.exports = {
       'syntax/partials',
       'syntax/builtin-helpers',
       'syntax/whitespace-control',
-      'syntax/auto-escaping'
+      'syntax/auto-escaping',
     ],
     API: [
       'api/overview',
@@ -56,11 +35,35 @@ module.exports = {
       'api/helper-api',
       'api/native-helper-api',
       'api/parsing',
-      'api/templates-partials-layouts'
-    ]
+      'api/templates-partials-layouts',
+    ],
 
     // add custom tags, how-to caching, etc.
   },
+  about: [
+    'about/introduction',
+    'about/why-squirrelly',
+    'about/performance',
+    'about/FAQ',
+    'about/how-squirrelly-works',
+  ],
+
+  // add custom tags, how-to caching, etc.
+  learn: [
+    {
+      type: 'category',
+      label: 'Learn',
+      items: ['learn/async'], // TODO: add tutorials on plugins, etc.
+    },
+    {
+      type: 'category',
+      label: 'Resources',
+      items: ['resources/integrations'],
+    },
+  ],
+
+  // add custom tags, how-to caching, etc.
+
   v7: [
     {
       type: 'category',
@@ -68,17 +71,17 @@ module.exports = {
       items: [
         {
           type: 'doc',
-          id: 'v7/overview'
+          id: 'v7/overview',
         },
         {
           type: 'doc',
-          id: 'v7/install'
+          id: 'v7/install',
         },
         {
           type: 'doc',
-          id: 'v7/security'
-        }
-      ]
+          id: 'v7/security',
+        },
+      ],
     },
     {
       type: 'category',
@@ -86,41 +89,41 @@ module.exports = {
       items: [
         {
           type: 'doc',
-          id: 'v7/syntax-overview'
+          id: 'v7/syntax-overview',
         },
         {
           type: 'doc',
-          id: 'v7/cheatsheet'
+          id: 'v7/cheatsheet',
         },
         {
           type: 'doc',
-          id: 'v7/global-refs'
+          id: 'v7/global-refs',
         },
         {
           type: 'doc',
-          id: 'v7/helper-refs'
+          id: 'v7/helper-refs',
         },
         {
           type: 'doc',
-          id: 'v7/filters'
+          id: 'v7/filters',
         },
         {
           type: 'doc',
-          id: 'v7/helpers'
+          id: 'v7/helpers',
         },
         {
           type: 'doc',
-          id: 'v7/partials'
+          id: 'v7/partials',
         },
         {
           type: 'doc',
-          id: 'v7/custom-tags'
+          id: 'v7/custom-tags',
         },
         {
           type: 'doc',
-          id: 'v7/builtin-helpers'
-        }
-      ]
+          id: 'v7/builtin-helpers',
+        },
+      ],
     },
     {
       type: 'category',
@@ -128,49 +131,49 @@ module.exports = {
       items: [
         {
           type: 'doc',
-          id: 'v7/auto-escaping'
+          id: 'v7/auto-escaping',
         },
         {
           type: 'doc',
-          id: 'v7/compile'
+          id: 'v7/compile',
         },
         {
           type: 'doc',
-          id: 'v7/default-tags'
+          id: 'v7/default-tags',
         },
         {
           type: 'doc',
-          id: 'v7/define-filter'
+          id: 'v7/define-filter',
         },
         {
           type: 'doc',
-          id: 'v7/define-helper'
+          id: 'v7/define-helper',
         },
         {
           type: 'doc',
-          id: 'v7/define-native-helper'
+          id: 'v7/define-native-helper',
         },
         {
           type: 'doc',
-          id: 'v7/define-partial'
+          id: 'v7/define-partial',
         },
         {
           type: 'doc',
-          id: 'v7/load'
+          id: 'v7/load',
         },
         {
           type: 'doc',
-          id: 'v7/render'
+          id: 'v7/render',
         },
         {
           type: 'doc',
-          id: 'v7/render-file'
+          id: 'v7/render-file',
         },
         {
           type: 'doc',
-          id: 'v7/set-default-filters'
-        }
-      ]
+          id: 'v7/set-default-filters',
+        },
+      ],
     },
     {
       type: 'category',
@@ -178,25 +181,25 @@ module.exports = {
       items: [
         {
           type: 'doc',
-          id: 'v7/introduction'
+          id: 'v7/introduction',
         },
         {
           type: 'doc',
-          id: 'v7/why-squirrelly'
+          id: 'v7/why-squirrelly',
         },
         {
           type: 'doc',
-          id: 'v7/performance'
+          id: 'v7/performance',
         },
         {
           type: 'doc',
-          id: 'v7/FAQ'
+          id: 'v7/FAQ',
         },
         {
           type: 'doc',
-          id: 'v7/contributors'
-        }
-      ]
+          id: 'v7/contributors',
+        },
+      ],
     },
     {
       type: 'category',
@@ -204,9 +207,9 @@ module.exports = {
       items: [
         {
           type: 'doc',
-          id: 'v7/how-squirrelly-works'
-        }
-      ]
+          id: 'v7/how-squirrelly-works',
+        },
+      ],
     },
     {
       type: 'category',
@@ -214,17 +217,17 @@ module.exports = {
       items: [
         {
           type: 'doc',
-          id: 'v7/first-template'
+          id: 'v7/first-template',
         },
         {
           type: 'doc',
-          id: 'v7/caching'
+          id: 'v7/caching',
         },
         {
           type: 'doc',
-          id: 'v7/runtime'
-        }
-      ]
+          id: 'v7/runtime',
+        },
+      ],
     },
     {
       type: 'category',
@@ -232,9 +235,9 @@ module.exports = {
       items: [
         {
           type: 'doc',
-          id: 'v7/how-squirrelly-works'
-        }
-      ]
-    }
-  ]
+          id: 'v7/how-squirrelly-works',
+        },
+      ],
+    },
+  ],
 }

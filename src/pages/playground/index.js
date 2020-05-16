@@ -116,7 +116,7 @@ var initialData = `"htmlstuff": "<script>alert('hey')</script><p>alert('hey')</p
   "thirdchild": [3, 6, 3, 2, 5, 4]
 }`
 
-function TemplateEditor (props) {
+function TemplateEditor(props) {
   return (
     <div className={styles.templategroup}>
       <h4>Template</h4>
@@ -129,7 +129,7 @@ function TemplateEditor (props) {
   )
 }
 
-function FunctionDisplay (props) {
+function FunctionDisplay(props) {
   return (
     <div className={styles.functiongroup}>
       <h4>Compile</h4>
@@ -139,7 +139,7 @@ function FunctionDisplay (props) {
   )
 }
 
-function DataEditor (props) {
+function DataEditor(props) {
   return (
     <div className={styles.datagroup}>
       <h4>Data</h4>
@@ -152,7 +152,7 @@ function DataEditor (props) {
   )
 }
 
-function ResultDisplay (props) {
+function ResultDisplay(props) {
   return (
     <div className={styles.resultgroup}>
       <h4>Result</h4>
@@ -162,22 +162,22 @@ function ResultDisplay (props) {
 }
 
 class ErrorBoundary extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = { hasError: false }
   }
 
-  static getDerivedStateFromError () {
+  static getDerivedStateFromError() {
     // Update state so the next render will show the fallback UI.
     return { hasError: true }
   }
 
-  componentDidCatch (error, errorInfo) {
+  componentDidCatch(error, errorInfo) {
     // You can also log the error to an error reporting service
     console.log('Squirrelly had an error: ', error, errorInfo)
   }
 
-  render () {
+  render() {
     if (this.state.hasError) {
       // You can render any custom fallback UI
       return <h1>Something went wrong.</h1>
@@ -188,7 +188,7 @@ class ErrorBoundary extends React.Component {
 }
 
 class Playground extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       template: props.v8 ? initialTemplate8 : initialTemplate,
@@ -199,13 +199,13 @@ class Playground extends React.Component {
       ).toString(),
       templateResult: props.v8
         ? Sqrl8.render(initialTemplate8, JSON.parse('{' + initialData + '}'))
-        : Sqrl7.Render(initialTemplate, JSON.parse('{' + initialData + '}'))
+        : Sqrl7.Render(initialTemplate, JSON.parse('{' + initialData + '}')),
     }
     this.handleDataChange = this.handleDataChange.bind(this)
     this.handleTemplateChange = this.handleTemplateChange.bind(this)
   }
 
-  handleDataChange (event) {
+  handleDataChange(event) {
     if (
       event.target.value &&
       JSON.parse('{' + (event.target.value || '') + '}')
@@ -213,23 +213,23 @@ class Playground extends React.Component {
       var data = JSON.parse('{' + (event.target.value || '') + '}')
       this.setState(
         {
-          data: data || {}
+          data: data || {},
         },
         this.updateSqrlResults
       )
     }
   }
 
-  handleTemplateChange (event) {
+  handleTemplateChange(event) {
     this.setState(
       {
-        template: event.target.value || ''
+        template: event.target.value || '',
       },
       this.updateSqrlResults
     )
   }
 
-  updateSqrlResults () {
+  updateSqrlResults() {
     var functionString
     var templateResult
 
@@ -239,7 +239,7 @@ class Playground extends React.Component {
         : Sqrl7.Compile(this.state.template)
       ).toString()
       this.setState({
-        functionString: functionString
+        functionString: functionString,
       })
     } catch (ex) {}
 
@@ -249,12 +249,12 @@ class Playground extends React.Component {
         this.state.data
       )
       this.setState({
-        templateResult: templateResult
+        templateResult: templateResult,
       })
     } catch (ex) {}
   }
 
-  render () {
+  render() {
     return (
       <div className={styles.playground}>
         <span>
@@ -301,28 +301,28 @@ class Playground extends React.Component {
 }
 
 class ErrorHandlingPlayground extends React.Component {
-  render () {
+  render() {
     return (
       <Layout
         title='SquirrellyJS Playground'
         description='Test out the Squirrelly template engine in your browser'
       >
         <Tabs
-          defaultValue='v7'
+          defaultValue='v8'
           values={[
+            { label: 'Version 8', value: 'v8' },
             { label: 'Version 7', value: 'v7' },
-            { label: 'Version 8 (BETA)', value: 'v8' }
           ]}
           style={{ textAlign: 'center' }}
         >
-          <TabItem value='v7'>
-            <ErrorBoundary>
-              <Playground />
-            </ErrorBoundary>
-          </TabItem>
           <TabItem value='v8'>
             <ErrorBoundary>
               <Playground v8 />
+            </ErrorBoundary>
+          </TabItem>
+          <TabItem value='v7'>
+            <ErrorBoundary>
+              <Playground />
             </ErrorBoundary>
           </TabItem>
         </Tabs>

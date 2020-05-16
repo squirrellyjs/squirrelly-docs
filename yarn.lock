@@ -8452,10 +8452,10 @@ sprintf-js@~1.0.2:
   resolved "https://registry.yarnpkg.com/squirrelly/-/squirrelly-7.9.2.tgz#f8b0a08201b73653351afe9f7f24878237d2751a"
   integrity sha512-QsLQ43p7/p5LfhqMsUM1PP0DU/YuirA/pZ1RQKU8/qZjWHD8uTblpfPoCVkD9VLrS1jCJ+2gqECv3amlPgrLCA==
 
-squirrelly@8.0.0-beta.10:
-  version "8.0.0-beta.10"
-  resolved "https://registry.yarnpkg.com/squirrelly/-/squirrelly-8.0.0-beta.10.tgz#87e3b3b2657980731abdf287f99b1c1be26f13c9"
-  integrity sha512-HRXv9VYAZ2YXusJmNVoxCam3HbqFymfMXGNvXOUQnuduwrOaVSJWyJBBBUX1Fnvuyh80YlnFx/YPudl47eURHA==
+squirrelly@^8.0.1:
+  version "8.0.1"
+  resolved "https://registry.yarnpkg.com/squirrelly/-/squirrelly-8.0.1.tgz#bffa32c039b1046961cdeed9d606b600e0ea42da"
+  integrity sha512-0vICnbJU5KG9ymz1IAKJjUJAdWsgU5qgGX8gRm9i/s63LPJ7IIuOCp8Bemlo2cVSOHDYxbQfu1GxNfGzxXlwVw==
 
 sshpk@^1.7.0:
   version "1.16.1"

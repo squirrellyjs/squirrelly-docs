@@ -8,7 +8,7 @@ authorImageURL: https://avatars2.githubusercontent.com/u/25597854?s=460&v=4
 tags: [dev, v8]
 ---
 
-Squirrelly version 8 is almost ready to transition from beta to stable -- read more about new features and changes!
+Squirrelly version 8 is stable -- read more about new features and changes!
 
 <!--truncate-->
 

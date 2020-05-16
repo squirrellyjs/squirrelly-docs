@@ -196,7 +196,7 @@ function Home() {
               )}
               <h3>Interactive Playground</h3>
               <RunKit
-                source={`var Sqrl = require("squirrelly@8.0.0-beta.11")
+                source={`var Sqrl = require("squirrelly")
 
 Sqrl.render("Hi {{it.user}}", {user: "Ada Lovelace"})
 `}

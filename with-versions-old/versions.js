@@ -15,7 +15,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
 
 // import versions from '../../versions.json'
 
-function Version () {
+function Version() {
   const context = useDocusaurusContext()
   const { siteConfig = {} } = context
   // const latestVersion = versions[0]
@@ -29,7 +29,7 @@ function Version () {
       <div className='container margin-vert--xl'>
         <h1>Squirrelly versions</h1>
         <div className='margin-bottom--lg'>
-          <h3 id='latest'>Squirrelly v8 (BETA)</h3>
+          <h3 id='latest'>Squirrelly v8</h3>
           <p>
             Here you can find the documentation for the latest release of
             Squirrelly v8.
