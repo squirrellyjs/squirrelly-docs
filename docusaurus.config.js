@@ -112,7 +112,7 @@ module.exports = {
           items: [
             {
               label: 'Docs',
-              to: 'docs/install',
+              to: 'docs/get-started/install',
             },
           ],
         },
