@@ -7882,6 +7882,11 @@ rc@^1.2.8:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-admonitions@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/react-admonitions/-/react-admonitions-2.1.0.tgz#c530ef8c6803ec1fa94dd948d1ff89d72a3bb2f7"
+  integrity sha512-Ydq3Ski6eRsHnXk9xfCcRnWdlYePQQ6+NvdtOkBi/cCZLp2EF5fbIKjMbWa6Z+hJG8JHgwku4743bQRYOiIW4w==
+
 react-dev-utils@^10.2.1:
   version "10.2.1"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-10.2.1.tgz#f6de325ae25fa4d546d09df4bb1befdc6dd19c19"
