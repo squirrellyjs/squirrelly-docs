@@ -1,10 +1,9 @@
-// const versions = require('./versions.json')
-
 module.exports = {
   title: 'SquirrellyJS',
   tagline: 'Lightweight, Blazing-Fast, and Powerful Template Engine',
   url: 'https://squirrelly.js.org',
   baseUrl: '/',
+  onBrokenLinks: 'throw',
   favicon: 'icons/favicon.ico',
   organizationName: 'squirrellyjs', // Usually your GitHub org/user name.
   projectName: 'squirrelly-docs', // Usually your repo name.
@@ -43,35 +42,12 @@ module.exports = {
         alt: 'Squirrelly Logo',
         src: 'img/logo/fit-noacorn.svg',
       },
-      links: [
-        // {
-        //   to: 'versions',
-        //   label: versions[0],
-        //   position: 'left',
-        //   style: {
-        //     whiteSpace: 'nowrap',
-        //     padding: '0.25rem 0.5rem 0.2rem 0.25rem',
-        //     fontSize: 'calc(0.9 * var(--ifm-font-size-base))',
-        //     textDecoration: 'underline'
-        //   }
-        // },
+      items: [
         {
-          label: 'Docs',
-          to: 'docs/introduction', // "fake" link
+          label: 'Docs (v8)',
+          to: 'docs/get-started/overview',
           position: 'left',
           activeBasePath: 'docs',
-          items: [
-            {
-              label: 'Version 8 (NEW)',
-              to: 'docs/get-started/overview', // TODO: use activeBaseTest once merged
-            },
-
-            {
-              label: 'Version 7',
-              to: 'docs/v7/install',
-              activeBasePath: 'docs/v7',
-            },
-          ],
         },
         {
           to: 'docs/about/introduction',
@@ -87,7 +63,10 @@ module.exports = {
         },
         { to: 'playground', label: 'REPL', position: 'left' },
         { to: 'blog', label: 'Blog', position: 'right' },
-
+        {
+          href: 'https://v7.squirrelly.js.org/docs/v7/install',
+          label: 'Docs (v7)',
+        },
         {
           href: 'https://gitter.im/squirrellyjs/Lobby',
           label: 'Community',
@@ -112,7 +91,7 @@ module.exports = {
           items: [
             {
               label: 'Docs',
-              to: 'docs/get-started/install',
+              to: 'docs/get-started/overview',
             },
           ],
         },
@@ -139,7 +118,7 @@ module.exports = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} SquirrellyJS. Built with Docusaurus 2.`,
+      copyright: `Copyright © ${new Date().getFullYear()} SquirrellyJS. Built with Docusaurus.`,
     },
   },
   presets: [
@@ -147,11 +126,20 @@ module.exports = {
       '@docusaurus/preset-classic',
       {
         docs: {
+          // It is recommended to set document id as docs home page (`docs/` path).
+          homePageId: 'get-started/overview',
           sidebarPath: require.resolve('./sidebars.js'),
+          // Please change this to your repo.
           editUrl:
             'https://github.com/squirrellyjs/squirrelly-docs/edit/master/website/',
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
+        },
+        blog: {
+          showReadingTime: true,
+          // Please change this to your repo.
+          editUrl:
+            'https://github.com/squirrellyjs/squirrelly-docs/edit/master/website/blog/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),

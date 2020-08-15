@@ -1,3 +1,4 @@
+/* stylelint-disable docusaurus/copyright-header */
 /**
  * Any CSS included here will be global. The classic template
  * bundles Infima by default. Infima is a CSS framework designed to
@@ -6,8 +7,8 @@
 
 /* You can override the default Infima variables here. */
 
-/* Old: https://www.sessions.edu/color-calculator/
-   New: https://www.canva.com/colors/color-wheel/
+/* See: https://www.sessions.edu/color-calculator/
+   And: https://www.canva.com/colors/color-wheel/
 */
 
 :root {
@@ -18,6 +19,7 @@
   --ifm-color-primary-light: #4183b4;
   --ifm-color-primary-lighter: #4589bc;
   --ifm-color-primary-lightest: #5d98c5;
+  --ifm-code-font-size: 95%;
 }
 
 .docusaurus-highlight-code-line {
