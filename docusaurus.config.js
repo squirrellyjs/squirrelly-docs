@@ -22,6 +22,8 @@ module.exports = {
       id: 'v8-stable',
       content:
         '<a target="_blank" rel="noopener noreferrer" href="https://github.com/squirrellyjs/squirrelly">Squirrelly version 8</a> has been released!',
+      backgroundColor: 'var(--ifm-color-primary)',
+      textColor: 'var(--ifm-color-black)',
     },
     prism: {
       additionalLanguages: ['ejs'],
