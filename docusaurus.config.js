@@ -118,7 +118,7 @@ module.exports = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} SquirrellyJS. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} SquirrellyJS. Built with Docusaurus. Theme inspired by <a href="https://www.benthos.dev">benthos.dev</a>`,
     },
   },
   presets: [
