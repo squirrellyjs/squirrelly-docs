@@ -2,9 +2,9 @@
 id: squirrelly-version-8
 title: Introducing Squirrelly Version 8!
 author: Ben Gubler
-authorTitle: Squirrelly Creator, Maintainer
-authorURL: https://github.com/nebrelbug
-authorImageURL: https://avatars2.githubusercontent.com/u/25597854?s=460&v=4
+author_title: Squirrelly Creator, Maintainer
+author_url: https://github.com/nebrelbug
+author_image_url: https://avatars2.githubusercontent.com/u/25597854?s=460&v=4
 tags: [dev, v8]
 ---
 
