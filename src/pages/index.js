@@ -1,10 +1,10 @@
 import React from 'react'
-import classnames from 'classnames'
+import clsx from 'clsx'
 import Layout from '@theme/Layout'
 import Link from '@docusaurus/Link'
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 import useBaseUrl from '@docusaurus/useBaseUrl'
-import styles from './index.module.css'
+import styles from './styles.module.css'
 import CodeSnippet from '@site/src/theme/CodeSnippet'
 import RunKit from '@site/src/theme/RunkitEmbed'
 import Tabs from '@theme/Tabs'
@@ -109,11 +109,11 @@ const features = [
 function Feature({ imageUrl, title, description }) {
   const imgUrl = useBaseUrl(imageUrl)
   return (
-    <div className={classnames('col col--6', styles.feature)}>
+    <div className={clsx('col col--6', styles.feature)}>
       {imgUrl && (
         <div className='text--center'>
           <img
-            className={classnames('padding-vert--md', styles.featureImage)}
+            className={clsx('padding-vert--md', styles.featureImage)}
             src={imgUrl}
             alt={title}
           />
@@ -140,10 +140,10 @@ function Home() {
         'squirrelly',
       ]}
     >
-      <header className={classnames('hero', styles.heroBanner)}>
+      <header className={clsx('hero', styles.heroBanner)}>
         <div className='container'>
           <div className='row'>
-            <div className={classnames('col col--5 col--offset-1')}>
+            <div className={clsx('col col--5 col--offset-1')}>
               <h1 className='hero__title'>{siteConfig.title}</h1>
               <p className='hero__subtitle'>
                 Powerful, lightweight, pluggable JS template engine
@@ -154,7 +154,7 @@ function Home() {
               </p>
               <div className={styles.buttons + ' ' + styles.buttonDiv}>
                 <Link
-                  className={classnames(
+                  className={clsx(
                     'button button--outline button--secondary button--lg',
                     styles.getStarted
                   )}
@@ -164,7 +164,7 @@ function Home() {
                 </Link>
               </div>
             </div>
-            <div className={classnames('col col--5')}>
+            <div className={clsx('col col--5')}>
               <img
                 alt='Squirrel'
                 className={styles['heroImg']}
@@ -177,7 +177,7 @@ function Home() {
       <main>
         <div className='container'>
           <div className='row'>
-            <div className={classnames('col col--6')}>
+            <div className={clsx('col col--6')}>
               {snippets && snippets.length && (
                 <section className={styles.configSnippets}>
                   <Tabs
@@ -203,7 +203,7 @@ Sqrl.render("Hi {{it.user}}", {user: "Ada Lovelace"})
               />
             </div>
 
-            <div className={classnames(`${styles.pitch} col col--6`)}>
+            <div className={clsx(`${styles.pitch} col col--6`)}>
               <h2>JavaScript Templating: Reimagined</h2>
               <p style={{ paddingTop: '0.5rem' }}>
                 We drew inspiration from template engines like Nunjucks,
