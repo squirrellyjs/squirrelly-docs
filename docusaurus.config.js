@@ -6,16 +6,16 @@
  */
 
 module.exports = {
-  title: 'SquirrellyJS',
+  title: 'SquirrellyJS | Version 7',
   tagline: 'Lightweight, Blazing-Fast, and Powerful Template Engine',
-  url: 'https://squirrelly.js.org',
+  url: 'https://v7--squirrellyjs.netlify.app',
   baseUrl: '/',
   favicon: '/favicon.ico',
   organizationName: 'squirrellyjs', // Usually your GitHub org/user name.
   projectName: 'squirrelly-docs', // Usually your repo name.
   themeConfig: {
     googleAnalytics: {
-      trackingID: 'UA-122013092-2'
+      trackingID: 'UA-122013092-3'
     },
     navbar: {
       title: 'Squirrelly',
@@ -24,11 +24,16 @@ module.exports = {
         src: 'img/logo/fit-noacorn.svg'
       },
       links: [
-        { to: 'docs/v7/install', label: 'Docs', position: 'left' },
+        { to: 'docs/v7/install', label: 'Docs (v7)', position: 'left' },
         { to: 'docs/v7/introduction', label: 'About', position: 'left' },
         { to: 'docs/v7/first-template', label: 'Learn', position: 'left' },
         { to: 'blog', label: 'Blog', position: 'left' },
         { to: 'playground', label: 'Playground', position: 'left' },
+        {
+          href: 'https://squirrelly.js.org',
+          label: 'Docs (v8)',
+          position: 'right'
+        },
         {
           href: 'https://gitter.im/squirrellyjs/Lobby',
           label: 'Community',

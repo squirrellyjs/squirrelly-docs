@@ -5,43 +5,48 @@
  * LICENSE file in the root directory of this source tree.
  */
 
-import React from 'react'
-import classnames from 'classnames'
-import Layout from '@theme/Layout'
-import Link from '@docusaurus/Link'
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
-import withBaseUrl from '@docusaurus/withBaseUrl'
-import styles from './styles.module.css'
+import React from "react"
+import classnames from "classnames"
+import Layout from "@theme/Layout"
+import Link from "@docusaurus/Link"
+import useDocusaurusContext from "@docusaurus/useDocusaurusContext"
+import withBaseUrl from "@docusaurus/withBaseUrl"
+import styles from "./styles.module.css"
 
 const features = [
   {
     title: <>Unbeatable Performance</>,
-    imageUrl: 'img/undraw/outer_space.svg',
+    imageUrl: "img/undraw/outer_space.svg",
     description: (
       <>
-        <a href='docs/v7/performance'>Benchmarks</a> demonstrate
-        just how fast Squirrelly is. Think fast, then multiply by crazy speedy, and you have an idea of Squirrelly's performance.
+        <a href="docs/v7/performance">Benchmarks</a> demonstrate just how fast
+        Squirrelly is. Think fast, then multiply by crazy speedy, and you have
+        an idea of Squirrelly's performance.
       </>
-    )
+    ),
   },
   {
     title: <>Easy to Use</>,
-    imageUrl: 'img/undraw/coding.svg',
+    imageUrl: "img/undraw/coding.svg",
     description: (
       <>
-        Squirrelly's template syntax (inspired by Handlebars and Nunjucks) is easy to read and write, and incredibly powerful.
+        Squirrelly's template syntax (inspired by Handlebars and Nunjucks) is
+        easy to read and write, and incredibly powerful.
       </>
-    )
+    ),
   },
   {
     title: <>Powerful and Lightweight</>,
-    imageUrl: 'img/undraw/collecting.svg',
+    imageUrl: "img/undraw/collecting.svg",
     description: (
       <>
-        Squirrelly comes with the necessary features to create incredibly powerful templates. Helpers, filters, native code, partials... with a minzipped bundle cost of only ~2.2KB! The runtime library is even smaller: only 600 bytes minzipped!
+        Squirrelly comes with the necessary features to create incredibly
+        powerful templates. Helpers, filters, native code, partials... with a
+        minzipped bundle cost of only ~2.2KB! The runtime library is even
+        smaller: only 600 bytes minzipped!
       </>
-    )
-  }
+    ),
+  },
 ]
 
 function Home() {
@@ -49,43 +54,49 @@ function Home() {
   const { siteConfig = {} } = context
   return (
     <Layout
-      permalink={'/'}
+      permalink={"/"}
       title="SquirrellyJS"
       description="Blazing-fast, lightweight, powerful and modern JS template engine"
     >
-      <div className={styles['index-hero']}>
-        <div className={styles['index-hero-inner']}>
+      <div className={styles["announcement"]}>
+        <div className={styles["announcement-inner"]}>
+          We just released <a href="https://squirrelly.js.org">Squirrelly v8</a>{" "}
+          - it's recommended to use that for new projects instead of v7!
+        </div>
+      </div>
+      <div className={styles["index-hero"]}>
+        <div className={styles["index-hero-inner"]}>
           <img
             alt="Squirrel"
-            className={styles['index-hero-logo']}
-            src={withBaseUrl('img/logo/fit.svg')}
-            style={{ width: '35%' }}
+            className={styles["index-hero-logo"]}
+            src={withBaseUrl("img/logo/fit.svg")}
+            style={{ width: "35%" }}
           />
-          <h1 className={styles['index-hero-project-tagline']}>
+          <h1 className={styles["index-hero-project-tagline"]}>
             Squirrelly is a
-            <br />{' '}
-            <span className={styles['index-hero-project-keywords']}>
+            <br />{" "}
+            <span className={styles["index-hero-project-keywords"]}>
               - Powerful
-            </span>{' '}
+            </span>{" "}
             <br />
-            <span className={styles['index-hero-project-keywords']}>
+            <span className={styles["index-hero-project-keywords"]}>
               - Lightweight
-            </span>{' '}
+            </span>{" "}
             <br />
-            <span className={styles['index-hero-project-keywords']}>
+            <span className={styles["index-hero-project-keywords"]}>
               - Blazing-Fast
-            </span>{' '}
+            </span>{" "}
             <br />
             JS template engine
           </h1>
-          <div className={styles['index-ctas']}>
+          <div className={styles["index-ctas"]}>
             <Link
-              className={styles['index-ctas-get-started-button']}
-              to={withBaseUrl('docs/v7/install')}
+              className={styles["index-ctas-get-started-button"]}
+              to={withBaseUrl("docs/v7/install")}
             >
               Get Started
             </Link>
-            <span className={styles['index-ctas-github-button']}>
+            <span className={styles["index-ctas-github-button"]}>
               <iframe
                 src="https://ghbtns.com/github-btn.html?user=squirrellyjs&amp;repo=squirrelly&amp;type=star&amp;count=true&amp;size=large"
                 frameBorder={0}
@@ -98,19 +109,6 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className={styles['announcement']}>
-        <div className={styles['announcement-inner']}>
-          We're working on{' '}
-          <a href="https://github.com/facebook/Docusaurus/issues/789">
-            Squirrelly v8
-          </a>{' '}
-          - contribute by suggesting features or giving{' '}
-          <Link to={'https://github.com/squirrellyjs/squirrelly/issues/106'}>
-            feedback here
-          </Link>
-          !
-        </div>
-      </div>
 
       <main>
         {features && features.length && (
@@ -120,7 +118,7 @@ function Home() {
                 {features.map(({ imageUrl, title, description }, idx) => (
                   <div
                     key={idx}
-                    className={classnames('col col--4', styles.feature)}
+                    className={classnames("col col--4", styles.feature)}
                   >
                     {imageUrl && (
                       <div className="text--center">
