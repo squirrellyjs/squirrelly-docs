@@ -47,7 +47,7 @@ module.exports = {
       items: [
         {
           label: 'Docs (v8)',
-          to: 'docs/get-started/overview',
+          to: 'docs',
           position: 'left',
           activeBasePath: 'docs',
         },
@@ -66,7 +66,7 @@ module.exports = {
         { to: 'playground', label: 'REPL', position: 'left' },
         { to: 'blog', label: 'Blog', position: 'right' },
         {
-          href: 'https://v7.squirrelly.js.org/docs/v7/install',
+          href: 'https://v7--squirrellyjs.netlify.app',
           label: 'Docs (v7)',
           position: 'right',
         },
@@ -94,7 +94,7 @@ module.exports = {
           items: [
             {
               label: 'Docs',
-              to: 'docs/get-started/overview',
+              to: 'docs/',
             },
           ],
         },
