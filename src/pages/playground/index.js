@@ -1,14 +1,11 @@
 import React from 'react'
 import Layout from '@theme/Layout'
 import styles from './styles.module.css'
-import Tabs from '@theme/Tabs'
-import TabItem from '@theme/TabItem'
 import CodeBlock from '@theme/CodeBlock'
 
-import * as Sqrl7 from 'squirrelly-7'
-import * as Sqrl8 from 'squirrelly'
+import * as Sqrl from 'squirrelly'
 
-Sqrl7.defineFilter('reverse', function (str) {
+Sqrl.filters.define('reverse', function (str) {
   var out = ''
   for (var i = str.length - 1; i >= 0; i--) {
     out += String(str).charAt(i)
@@ -16,25 +13,7 @@ Sqrl7.defineFilter('reverse', function (str) {
   return out || str
 })
 
-Sqrl8.filters.define('reverse', function (str) {
-  var out = ''
-  for (var i = str.length - 1; i >= 0; i--) {
-    out += String(str).charAt(i)
-  }
-  return out || str
-})
-
-Sqrl7.defineHelper('customhelper', function (args, content, blocks, options) {
-  var returnStr = 'Custom Helper speaking! \n'
-  for (var key in blocks) {
-    if (typeof blocks[key] === 'function') {
-      returnStr += 'Block found named ' + key + ', with value: ' + blocks[key]()
-    }
-  }
-  return returnStr
-})
-
-Sqrl8.helpers.define('customhelper', function (content, blocks, options) {
+Sqrl.helpers.define('customhelper', function (content, blocks, options) {
   var returnStr = 'Custom Helper speaking! \n'
   for (var i = 0; i < blocks.length; i++) {
     var currentBlock = blocks[i]
@@ -47,42 +26,14 @@ Sqrl8.helpers.define('customhelper', function (content, blocks, options) {
   return returnStr
 })
 
-Sqrl7.definePartial('mypartial', 'Partial content: the value of arr is {{arr}}')
+// Sqrl7.definePartial('mypartial', 'Partial content: the value of arr is {{arr}}')
 
-Sqrl8.templates.define(
+Sqrl.templates.define(
   'mypartial',
-  Sqrl8.compile('Partial content: the value of `num` is {{it.num}}')
+  Sqrl.compile('Partial content: the value of `num` is {{it.num}}')
 )
 
 var initialTemplate = `Hi
-{{log("Hope you like Squirrelly!")/}}
-{{ htmlstuff }}
-{{ foreach(options.obj) }}
-
-Reversed value: {{@this|reverse}}, Key: {{@key}}
-{{if(@key==="thirdchild")}}
-{{each(options.obj[@key])}}
-
-Salutations! Index: {{@index}}, old key: {{@../key}}
-{{/each}}
-{{/if}}
-{{/foreach}}
-
-{{ customhelper() }}
-{{#cabbage}}
-Cabbages taste good
-{{#pineapple}}
-As do pineapples
-{{/customhelper}}
-
-This is a partial: {{include("mypartial")/}}
-{{tags(--,--)/}}
-
-Custom delimeters!
---arr--
-`
-
-var initialTemplate8 = `Hi
 {{!console.log("Hope you like Squirrelly!")}}
 {{it.htmlstuff}}
 
@@ -191,15 +142,13 @@ class Playground extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      template: props.v8 ? initialTemplate8 : initialTemplate,
+      template: initialTemplate,
       data: JSON.parse('{' + initialData + '}'),
-      functionString: (props.v8
-        ? Sqrl8.compile(initialTemplate8)
-        : Sqrl7.Compile(initialTemplate)
-      ).toString(),
-      templateResult: props.v8
-        ? Sqrl8.render(initialTemplate8, JSON.parse('{' + initialData + '}'))
-        : Sqrl7.Render(initialTemplate, JSON.parse('{' + initialData + '}')),
+      functionString: Sqrl.compile(initialTemplate).toString(),
+      templateResult: Sqrl.render(
+        initialTemplate,
+        JSON.parse('{' + initialData + '}')
+      ),
     }
     this.handleDataChange = this.handleDataChange.bind(this)
     this.handleTemplateChange = this.handleTemplateChange.bind(this)
@@ -234,20 +183,14 @@ class Playground extends React.Component {
     var templateResult
 
     try {
-      functionString = (this.props.v8
-        ? Sqrl8.compile(this.state.template)
-        : Sqrl7.Compile(this.state.template)
-      ).toString()
+      functionString = Sqrl.compile(this.state.template).toString()
       this.setState({
         functionString: functionString,
       })
     } catch (ex) {}
 
     try {
-      templateResult = (this.props.v8 ? Sqrl8.render : Sqrl7.Render)(
-        this.state.template,
-        this.state.data
-      )
+      templateResult = Sqrl.render(this.state.template, this.state.data)
       this.setState({
         templateResult: templateResult,
       })
@@ -307,25 +250,9 @@ class ErrorHandlingPlayground extends React.Component {
         title='SquirrellyJS Playground'
         description='Test out the Squirrelly template engine in your browser'
       >
-        <Tabs
-          defaultValue='v8'
-          values={[
-            { label: 'Version 8', value: 'v8' },
-            { label: 'Version 7', value: 'v7' },
-          ]}
-          style={{ textAlign: 'center' }}
-        >
-          <TabItem value='v8'>
-            <ErrorBoundary>
-              <Playground v8 />
-            </ErrorBoundary>
-          </TabItem>
-          <TabItem value='v7'>
-            <ErrorBoundary>
-              <Playground />
-            </ErrorBoundary>
-          </TabItem>
-        </Tabs>
+        <ErrorBoundary>
+          <Playground />
+        </ErrorBoundary>
       </Layout>
     )
   }

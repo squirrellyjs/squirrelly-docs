@@ -23,7 +23,7 @@ module.exports = {
       content:
         '<a target="_blank" rel="noopener noreferrer" href="https://github.com/squirrellyjs/squirrelly">Squirrelly version 8</a> has been released!',
       backgroundColor: 'var(--ifm-color-primary)',
-      textColor: 'var(--ifm-color-black)',
+      textColor: 'var(--docsearch-text-color)',
     },
     prism: {
       additionalLanguages: ['ejs'],
@@ -68,6 +68,7 @@ module.exports = {
         {
           href: 'https://v7.squirrelly.js.org/docs/v7/install',
           label: 'Docs (v7)',
+          position: 'right',
         },
         {
           href: 'https://gitter.im/squirrellyjs/Lobby',
