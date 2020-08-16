@@ -29,7 +29,7 @@
   animation-name: jackInTheBox;
   margin-top: 20px;
   padding: 0px;
-  height: 30vh;
+  max-height: 40vh;
   margin: 10px 0;
 }
 
