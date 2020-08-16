@@ -23,6 +23,6 @@ Squirrelly has a number of features that set it apart from the competition:
 * It works with other languages than HTML
 * It's not whitespace sensitive
 
-For more information, see [Why Squirrelly?](../why-squirrelly.md)
+For more information, see [Why Squirrelly?](about/why-squirrelly.md)
 
 

@@ -7,7 +7,7 @@ Congratulations on deciding to use Squirrelly! These docs will be your guide as 
 
 ## For people who learn by example
 
-We recommend going [here](first-template) to find tutorials and lots of example code!
+We recommend going [here](get-started/first-template) to find tutorials and lots of example code!
 
 ## For API lovers
 
