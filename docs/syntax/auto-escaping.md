@@ -3,15 +3,13 @@ id: auto-escaping
 title: Auto XML-Escaping
 ---
 
-import Hint from 'react-admonitions'
-
 Auto-escaping is an important feature of Squirrelly. When it's enabled, every reference without the `safe` filter or `*` prefix will be HTML-escaped, to provide some protection against XSS.
 
-<Hint type="warning">
+:::caution
 
 Squirrelly has **not** been vetted for security, and autoEscaping is probably not completely foolproof. We use the same function as many other template engines, like Mustache and Handlebars, but there's still the possibility that there's some vulnerability.  
 
-</Hint>
+:::
 
 ```js
 Sqrl.defaultConfig.autoEscape = true // Turns autoEscaping on
@@ -30,8 +28,8 @@ You can also put an asterisk (`*`) after the opening delimiters and whitespace c
 _Examples_: `{{* someref}}`, `{{_ * someref}}`
 
 
-<Hint type="note">
+:::note
 
 Auto-escaping can be helpful, but it also negatively impacts performance. For best results, autoEscape data before you store it or attempt to render it in a template.
 
-</Hint>
+:::

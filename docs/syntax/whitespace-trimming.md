@@ -2,15 +2,14 @@
 id: whitespace-control
 title: Whitespace Control
 ---
-import Hint from 'react-admonitions'
 
 Squirrelly allows you to control the whitespace before or after tags.
 
-<Hint type="note" >
+:::note
 
 Squirrelly borrows its whitespace control syntax from EJS
 
-</Hint>
+:::
 
 ## Basic Syntax
 
@@ -33,7 +32,8 @@ Hi
 {{/if}}
 ```
 
-<Hint type="note" title="Defining Filters">
+:::note Configuration
 
 By default, Squirrelly removes the first whitespace character after each tag. This can be [configured](../api/configuration)
-</Hint>
+
+:::

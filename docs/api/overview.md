@@ -3,13 +3,11 @@ id: overview
 title: API Overview
 ---
 
-import Hint from 'react-admonitions'
+:::note
 
-<Hint type="note">
-    
 You can view the TypeDoc API documentation for Squirrelly at https://squirrellyjs.github.io/squirrelly/modules/_index_.html.
 
-</Hint>
+:::
 
 ## Big list of API options
 

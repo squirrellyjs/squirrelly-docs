@@ -3,9 +3,7 @@ id: file-handling
 title: File Handling
 ---
 
-import Hint from 'react-admonitions'
-
-<Hint type="note">
+:::note
     
 Squirrelly works out-of-the-box with Express.js.
 
@@ -18,7 +16,7 @@ app.set('view engine', 'squirrelly')
 
 ```
 
-</Hint>
+:::
 
 ## Syntax
 

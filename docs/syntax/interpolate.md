@@ -2,6 +2,7 @@
 id: interpolate
 title: References (Interpolate)
 ---
+
 A reference (what doT would call an interpolation) outputs data into the template.
 
 ## Basic Syntax
@@ -17,16 +18,10 @@ Put a reference between the opening and closing delimeters (by default `{{`and `
 
 Since Squirrelly templates parse into JavaScript, you can write a reference using dot notation: `<p>User's last name: {{it.user.lastName}}` or bracket notation: `<p>User's last name: {{it.user['lastName']}}`.
 
-import Hint from 'react-admonitions'
-
-<Hint type="note">
-
+:::note
 You can unescape a reference by putting `*` after the opening delimeters (ex. `{{* unescapedSomething }}`)
+:::
 
-</Hint>
-
-<Hint type="warning">
-
+:::caution
 There can be spaces after the tag start (default `{{`) and before a tag close (default `}}`)
-
-</Hint>
+:::

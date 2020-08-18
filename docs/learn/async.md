@@ -3,13 +3,11 @@ id: async
 title: Async Support
 ---
 
-import Hint from 'react-admonitions'
+:::note
 
-<Hint type="note">
-    
 Async support is still in-progress for environments not supporting `async`/`await`.
 
-</Hint>
+:::
 
 ## Syntax
 

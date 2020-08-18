@@ -3,8 +3,6 @@ id: introduction
 title: Introduction
 ---
 
-import Hint from 'react-admonitions'
-
 Squirrelly is a template engine written in JavaScript.
 
 With Squirrelly, you can write templates that are blazing fast and can be rendered in milliseconds, server-side or client-side.
@@ -13,8 +11,8 @@ Squirrelly doesn't just limit you to HTML--you can use it with any language, and
 
 ![](https://img.shields.io/bundlephobia/minzip/squirrelly.svg)
 
-<Hint type="note">
+:::note
 
 Did you know that Squirrelly is consistently faster than most other template engines, according to benchmarks?
 
-</Hint>
+:::

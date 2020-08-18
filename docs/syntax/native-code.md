@@ -2,9 +2,11 @@
 id: native-code
 title: Native Code (Evaluate)
 ---
+
 A native code tag inserts its contents into the template function. (It's what doT would call evaluation).
 
 ## Basic Syntax
+
 ```sqrl
 {{! ...  }}
 ```
@@ -31,12 +33,10 @@ You can log to the console with native code syntax.
 {{! console.log("Hi"); }}
 ```
 
-import Hint from 'react-admonitions'
-
-<Hint type="warning">
+:::caution
 
 Make sure you include semicolons when needed! Ex. `{{! console.log('x'); }}`
 
 In general, semicolons are needed after calling functions.
 
-</Hint>
+:::

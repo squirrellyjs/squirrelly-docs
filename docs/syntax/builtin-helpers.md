@@ -3,8 +3,6 @@ id: builtin-helpers
 title: Built-in Helpers
 ---
 
-import Hint from "react-admonitions";
-
 Builtin helpers are helpers that come as part of the Squirrelly library. They can always be overwritten if desired, but they provide simple, no-setup logic within templates.
 
 ## if/else

@@ -3,8 +3,6 @@ id: filters
 title: Filters
 ---
 
-import Hint from 'react-admonitions'
-
 Filters let you pipe content through some predefined functions.
 
 ## Basic Syntax
@@ -29,11 +27,11 @@ Filters can also accept parameters.
 {{it.someArray | join(", ")}}
 ```
 
-<Hint type="note" title="Defining Filters">
+:::note Defining Filters
 
 Remember, you'll need to [define each filter](../api/filter-api) before you use it.
 
-</Hint>
+:::
 
 ## The `safe` flag
 
