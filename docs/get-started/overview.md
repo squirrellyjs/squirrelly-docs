@@ -1,6 +1,7 @@
 ---
 id: overview
 title: Overview
+slug: /
 ---
 
 Congratulations on deciding to use Squirrelly! These docs will be your guide as you learn how to use this tool.

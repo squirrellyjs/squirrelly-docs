@@ -1,5 +1,5 @@
 ---
-id: squirrelly-version-8
+slug: squirrelly-version-8
 title: Introducing Squirrelly Version 8!
 author: Ben Gubler
 author_title: Squirrelly Creator, Maintainer
