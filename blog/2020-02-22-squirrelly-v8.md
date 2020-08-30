@@ -44,7 +44,7 @@ The majority of my time working on v8 was spent creating a new parser. The parse
 
 I then used a Typescript library boilerplate to set up a new, best-practices-following repository. Squirrelly uses Rollup to build, Terser to minify, and Jest for tests and coverage.
 
-Finally, I've spent the last several months building out the library itself. It had to be small (Squirrelly will never exceed 10KB minified -- right now it weighs 7.5KB minified and 3.3KB minzipped), well-designed, and written to support both old and modern environments. As of right now, the API is mostly standardized (theoretically). Compilation and caching were also written with performance in mind: [performance benchmarks](https://cdn.statically.io/gh/squirrellyjs/squirrelly/master/browser-tests/benchmark.html) show that Squirrelly beats essentially every other template engine in terms of performance.
+Finally, I've spent the last several months building out the library itself. It had to be small (Squirrelly will never exceed 10KB minified -- right now it weighs 7.5KB minified and 3.3KB minzipped), well-designed, and written to support both old and modern environments. As of right now, the API is mostly standardized (theoretically). Compilation and caching were also written with performance in mind: [performance benchmarks](https://ghcdn.rawgit.org/squirrellyjs/squirrelly/master/browser-tests/benchmark.html) show that Squirrelly beats essentially every other template engine in terms of performance.
 
 ## The Big List of New Things (in progress)
 
@@ -59,4 +59,4 @@ Finally, I've spent the last several months building out the library itself. It 
 - Filters can accept parameters
 - Explicit helper references (see [#120](https://github.com/squirrellyjs/squirrelly/issues/120))
 - Typescript types
-- Added benchmarks webpage to repository, so devs can benchmark while developing (https://cdn.statically.io/gh/squirrellyjs/squirrelly/master/browser-tests/benchmark.html)
+- Added benchmarks webpage to repository, so devs can benchmark while developing (https://ghcdn.rawgit.org/squirrellyjs/squirrelly/master/browser-tests/benchmark.html)

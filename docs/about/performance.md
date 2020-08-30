@@ -13,4 +13,4 @@ Squirrelly's faster than virtually all other template engines out there.
 
 ## Run tests in your browser!
 
-https://cdn.statically.io/gh/squirrellyjs/squirrelly/master/browser-tests/benchmark.html
+https://ghcdn.rawgit.org/squirrellyjs/squirrelly/master/browser-tests/benchmark.html
