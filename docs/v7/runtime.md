@@ -14,5 +14,5 @@ The runtime version is only really relevant in the browser, where load times are
 Instead of including the full Squirrelly JS file, include:
 
 ```html
-<script src="https://unpkg.com/squirrelly@latest/dist/squirrelly.runtime.min.js"></script>
+<script src="https://unpkg.com/squirrelly@7/dist/squirrelly.runtime.min.js"></script>
 ```
