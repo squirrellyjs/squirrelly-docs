@@ -13,7 +13,7 @@ module.exports = {
       'syntax/interpolate',
       'syntax/filters',
       'syntax/helpers',
-      'syntax/partials',
+      'syntax/partials-layouts',
       'syntax/builtin-helpers',
       'syntax/whitespace-control',
       'syntax/auto-escaping',
