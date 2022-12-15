@@ -13,7 +13,7 @@ Squirrelly has **not** been vetted for security, and autoEscaping is probably no
 
 ```js
 Sqrl.defaultConfig.autoEscape = true // Turns autoEscaping on
-Sqrl.defaultConfig.autoEscape = false // Turns autoEscaping on
+Sqrl.defaultConfig.autoEscape = false // Turns autoEscaping off
 // autoEscaping is on by default
 ```
 
