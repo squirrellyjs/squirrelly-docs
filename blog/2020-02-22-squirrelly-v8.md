@@ -51,7 +51,7 @@ Finally, I've spent the last several months building out the library itself. It 
 - Template inheritance
 - Partials support
   - Users can now include files with `{{@includeFile("./file.sqrl") /}}`
-- Delimeters can no longer be changed mid-template
+- Delimiters can no longer be changed mid-template
 - Async support
   - We're still working on supporting async helpers and filters in environments not supporting the `await` keyword
 - Better error reporting

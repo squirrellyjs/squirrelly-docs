@@ -12,14 +12,14 @@ A reference (what doT would call an interpolation) outputs data into the templat
 
 ## Overview
 
-Put a reference between the opening and closing delimeters (by default `{{`and `}}`).
+Put a reference between the opening and closing delimiters (by default `{{`and `}}`).
 
 **The data you call a template with is stored in an object named `it` by default.**
 
 Since Squirrelly templates parse into JavaScript, you can write a reference using dot notation: `<p>User's last name: {{it.user.lastName}}` or bracket notation: `<p>User's last name: {{it.user['lastName']}}`.
 
 :::note
-You can unescape a reference by putting `*` after the opening delimeters (ex. `{{* unescapedSomething }}`)
+You can unescape a reference by putting `*` after the opening delimiters (ex. `{{* unescapedSomething }}`)
 :::
 
 :::caution

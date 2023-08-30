@@ -19,4 +19,4 @@ _Don't use these variables in your templates_
 ## Delimiters
 
 - Delimiters have to be regular-expression escaped
-- Your closing delimeter can't contain `(`, `)`, `|`, or `=>`. _This is due to our parsing algorithm needing to figure out when helper parameters have been closed, filters started, etc._
+- Your closing delimiter can't contain `(`, `)`, `|`, or `=>`. _This is due to our parsing algorithm needing to figure out when helper parameters have been closed, filters started, etc._

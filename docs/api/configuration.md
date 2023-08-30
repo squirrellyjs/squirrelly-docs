@@ -30,9 +30,9 @@ Similarly to many other libraries, Squirrelly allows you to customize its behavi
 
 ### Delimiter Caveats
 
-Closing delimeters (like `{{`) can't have any of `(`, `)`, `|`, or `=>`.
+Closing delimiters (like `{{`) can't have any of `(`, `)`, `|`, or `=>`.
 
-Delimeters must be RegExp-escaped.
+Delimiters must be RegExp-escaped.
 
 ### `autoTrim`
 
