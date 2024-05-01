@@ -15,7 +15,7 @@ Similarly to many other libraries, Squirrelly allows you to customize its behavi
 | `autoEscape`    | Whether to automatically XML-escape                |       `boolean`       |                         |    Yes    |
 | `autoTrim`      | Configure automatic whitespace trimming            | [autoTrim](#autotrim) |     `[false, "nl"`]     |    Yes    |
 | `cache`         | Cache templates by `name` or `filename`            |       `boolean`       |                         |    Yes    |
-| `defaultFilter` | Pass all interpolates through a function           |  `false | Function`   |         `false`         |    Yes    |
+| `defaultFilter` | Pass all interpolates through a function           |  `false \| Function`   |         `false`         |    Yes    |
 | `filename`      | Absolute filepath of template (for caching)        |       `string`        |       `undefined`       |    No     |
 | `l`             | Function that returns helpers. See [l](#l)         |      `Function`       |    `defaultConfig.l`    |    Yes    |
 | `name`          | Template name (for caching)                        |       `string`        |       `undefined`       |    No     |
